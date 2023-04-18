@@ -1,5 +1,5 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+See the LICENSE.txt file for this sample’s licensing information.
 
 Abstract:
 A SwiftUI view that manages the participants of a share.
@@ -20,22 +20,22 @@ struct ParticipantView: View {
     private let share: CKShare
 
     @State private var toggleProgress: Bool = false
-    @State private var participants: [Participant]
+    @State private var participants = [Participant]()
     @State private var wasShareDeleted = false
     
     private let canUpdateParticipants: Bool
-    
+    private var persistentStoreForShare: NSPersistentStore?
+
     init(activeSheet: Binding<ActiveSheet?>, share: CKShare) {
         _activeSheet = activeSheet
         self.share = share
-        participants = share.participants.filter { $0.role != .owner }.map { Participant($0) }
-        
         let privateStore = PersistenceController.shared.privatePersistentStore
-        canUpdateParticipants = (share.persistentStore == privateStore)
+        persistentStoreForShare = PersistenceController.shared.persistentStoreForShare(share)
+        canUpdateParticipants = (persistentStoreForShare == privateStore)
     }
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 if wasShareDeleted {
                     Text("The share was deleted remotely.").padding()
@@ -45,31 +45,33 @@ struct ParticipantView: View {
                 }
             }
             .toolbar { toolbarItems() }
-            .listStyle(.plain)
-            .navigationTitle("Participants")
+            .listStyle(.clearRowShape)
+            .navigationTitle("Participant")
+        }
+        .frame(idealWidth: Layout.sheetIdealWidth, idealHeight: Layout.sheetIdealHeight)
+        .onAppear {
+            participants = share.participants.filter { $0.role != .owner }.map { Participant($0) }
         }
         .onReceive(NotificationCenter.default.storeDidChangePublisher) { notification in
             processStoreChangeNotification(notification)
         }
     }
     
-    /**
-     List -> Section header + section content triggers a strange animation when deleting an item.
-     Moving the header out (like below) fixes the animation issue, but the toolbar item doesn't work in watchOS.
-     ParticipantListHeader(participants: $participants, share: share)
-         .padding(EdgeInsets(top: 5, leading: 10, bottom: 0, trailing: 0))
-     List {
-         SectionContent()
-     }
-     */
     @ViewBuilder
     private func participantListView() -> some View {
         ZStack {
+            #if os(watchOS)
+            List {
+                sectionHeader()
+                sectionContent()
+            }
+            #else
             List {
                 Section(header: sectionHeader()) {
                     sectionContent()
                 }
             }
+            #endif
             if toggleProgress {
                 ProgressView()
             }
@@ -81,8 +83,6 @@ struct ParticipantView: View {
         if canUpdateParticipants {
             ParticipantListHeader(toggleProgress: $toggleProgress,
                                   participants: $participants, share: share)
-        } else {
-            EmptyView()
         }
     }
     
@@ -90,27 +90,69 @@ struct ParticipantView: View {
     private func sectionContent() -> some View {
         ForEach(participants, id: \.self) { participant in
             HStack {
-                Text(participant.ckShareParticipant.userIdentity.lookupInfo?.emailAddress ?? "")
+                VStack {
+                    Text(participant.ckShareParticipant.userIdentity.nameComponents?.formatted() ?? "(No name)")
+                    Text(participant.ckShareParticipant.userIdentity.lookupInfo?.emailAddress ?? "(No email)")
+                }
                 Spacer()
                 Text(participant.ckShareParticipant.acceptanceStatus.stringValue)
             }
         }
         .onDelete(perform: canUpdateParticipants ? deleteParticipant : nil)
+        .emptyListPrompt(participants.isEmpty, prompt: "No participant.")
     }
     
     @ToolbarContentBuilder
     private func toolbarItems() -> some ToolbarContent {
-        ToolbarItem(placement: .automatic) {
-            Button("Dismiss") { activeSheet = nil }
+        let slashSharingTitle = canUpdateParticipants ? "Stop Sharing" : "Remove Me"
+        ToolbarItem(placement: .dismiss) {
+            Button("Dismiss") {
+                activeSheet = nil
+            }
         }
-        /**
-         "Copy Link" is only available for iOS because watchOS doesn't support UIPasteboard.
-         */
-        #if os(iOS)
-        ToolbarItem(placement: .bottomBar) {
-            Button("Copy Link") { UIPasteboard.general.url = share.url }
+        #if os(watchOS)
+        ToolbarItem(placement: .secondItem) {
+            HStack {
+                Spacer()
+                IconOnlyButton(slashSharingTitle, systemImage: "person.2.slash") {
+                    purgeShare(share, in: persistentStoreForShare)
+                }
+                .foregroundColor(.red)
+                .padding(.trailing, 20)
+
+                ShareLink(item: share.url!.description, subject: Text("Cloud sharing"), message: Text("A cool photo!")) {
+                    SheetToolbarItemLabel(title: "Send Share Link", systemImage: "square.and.arrow.up")
+                        .font(.system(size: 18))
+                }
+                .buttonStyle(.plain)
+                .padding(.trailing, 10)
+            }
+            .padding(.bottom)
+        }
+        #else
+        ToolbarItem(placement: .firstItem) {
+            Button(action: {
+                purgeShare(share, in: persistentStoreForShare)
+            }) {
+                SheetToolbarItemLabel(title: slashSharingTitle, systemImage: "person.2.slash")
+                    .foregroundColor(.red)
+            }
+        }
+        ToolbarItem(placement: .secondItem) {
+            ShareLink(item: share.url!.description, subject: Text("Cloud sharing"), message: Text("A cool photo!")) {
+                SheetToolbarItemLabel(title: "Share the URL", systemImage: "square.and.arrow.up")
+            }
         }
         #endif
+    }
+    
+    private func purgeShare(_ share: CKShare, in persistentStore: NSPersistentStore?) {
+        toggleProgress.toggle()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            PersistenceController.shared.purgeObjectsAndRecords(with: share.recordID, in: persistentStore)
+            toggleProgress.toggle()
+            activeSheet = nil
+        }
     }
     
     private func deleteParticipant(offsets: IndexSet) {
@@ -153,21 +195,20 @@ private struct ParticipantListHeader: View {
     @Binding var participants: [Participant]
     var share: CKShare
     @State private var emailAddress: String = ""
+    @State private var isValidInput = false
 
     var body: some View {
         HStack {
-            TextField( "Email", text: $emailAddress)
-            Button(action: addParticipant) {
-                Image(systemName: "plus.circle")
-                    .imageScale(.large)
-                    .font(.system(size: 18))
+            ClearableTextField(title: "Email", text: $emailAddress)
+                .foregroundColor(isValidInput ? .primary : .secondary)
+                .onChange(of: emailAddress) { newValue in
+                    isValidInput = isValidEmail(newValue)
+                }
+            IconOnlyButton("Add", systemImage: "plus.circle", font: .system(size: 20)) {
+                addParticipant()
             }
-            .frame(width: 20)
-            .buttonStyle(.plain)
+            .disabled(emailAddress.isEmpty || !isValidInput)
         }
-        .frame(height: 30)
-        .padding(5)
-        .background(Color.listHeaderBackground)
     }
     
     /**
@@ -188,16 +229,24 @@ private struct ParticipantListHeader: View {
                     DispatchQueue.main.async {
                         participants = updatedShare.participants.filter { $0.role != .owner }.map { Participant($0) }
                         emailAddress = ""
-                        toggleProgress.toggle()
                     }
+                } else {
+                    isValidInput = false
                 }
+                toggleProgress.toggle()
             }
         }
+    }
+    
+    private func isValidEmail(_ email: String) -> Bool {
+        let emailRegularExpression = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", emailRegularExpression)
+        return predicate.evaluate(with: email)
     }
 }
 
 /**
- A structure that wraps CKShare.Participant and implements Equatable to trigger SwiftUI updates when any of the following state changes:
+ A structure that wraps CKShare.Participant and implements Equatable to trigger SwiftUI updates when any of the following states change:
  - userIdentity
  - acceptanceStatus
  - permission

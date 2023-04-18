@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		401C06ED276E9D790024D92C /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401C06EC276E9D790024D92C /* ExtensionDelegate.swift */; };
+		401C06ED276E9D790024D92C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401C06EC276E9D790024D92C /* AppDelegate.swift */; };
 		4026B868270A19390060F0F7 /* TaggingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4026B867270A19390060F0F7 /* TaggingView.swift */; };
+		4027C7F029AC195E00D62EE9 /* AppDelegate_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4027C7EF29AC195E00D62EE9 /* AppDelegate_macOS.swift */; platformFilters = (macos, ); };
+		4027C7F129AC1A3200D62EE9 /* AppDelegate_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4027C7EF29AC195E00D62EE9 /* AppDelegate_macOS.swift */; platformFilters = (macos, ); };
 		403177D32742D5790048F2DC /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40527E16270BBE3400DB2901 /* RatingView.swift */; };
 		403177D42742DB270048F2DC /* TaggingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4026B867270A19390060F0F7 /* TaggingView.swift */; };
 		403177D62742F4B40048F2DC /* PhotoGridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7D622703A27000D2BA90 /* PhotoGridItemView.swift */; };
@@ -20,14 +22,18 @@
 		403177DD274310B50048F2DC /* ManagingSharesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408BD4DB2713F0F400294A81 /* ManagingSharesView.swift */; };
 		403177DE27432CE40048F2DC /* PhotoContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4035B60D27150DA100F46D6B /* PhotoContextMenu.swift */; };
 		4035B60E27150DA100F46D6B /* PhotoContextMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4035B60D27150DA100F46D6B /* PhotoContextMenu.swift */; };
+		403C735F29BBA7FA0098ADE2 /* PersistenceController+UISharingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403C735E29BBA7FA0098ADE2 /* PersistenceController+UISharingController.swift */; platformFilter = ios; };
+		403C736229BBAD1E0098ADE2 /* PersistenceController+NSSharingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403C736029BBA8680098ADE2 /* PersistenceController+NSSharingService.swift */; platformFilters = (macos, ); };
+		4040ECF029A98CF000E9217F /* CloudKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040ECEF29A98CF000E9217F /* CloudKitHelper.swift */; };
+		4040ECF229A98DD400E9217F /* CloudKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040ECEF29A98CF000E9217F /* CloudKitHelper.swift */; };
 		40527E17270BBE3400DB2901 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40527E16270BBE3400DB2901 /* RatingView.swift */; };
 		40527E19270BC8FE00DB2901 /* PersistenceController+Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40527E18270BC8FE00DB2901 /* PersistenceController+Rating.swift */; };
 		4058316A2767DCDE0044E86D /* FullImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405831692767DCDE0044E86D /* FullImageView.swift */; };
 		4058316B2767F0ED0044E86D /* FullImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405831692767DCDE0044E86D /* FullImageView.swift */; };
 		40744289270FAFB3009CABC7 /* ParticipantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40744288270FAFB3009CABC7 /* ParticipantView.swift */; };
-		4074428B270FB2B5009CABC7 /* PersistenceController+Share.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074428A270FB2B5009CABC7 /* PersistenceController+Share.swift */; };
-		407A0CDE2707D0CD00F481C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7D6A2704334400D2BA90 /* SceneDelegate.swift */; };
-		407A0CE02707D0CD00F481C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7D6C2704335A00D2BA90 /* AppDelegate.swift */; };
+		4074428B270FB2B5009CABC7 /* PersistenceController+SharingUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074428A270FB2B5009CABC7 /* PersistenceController+SharingUtilities.swift */; };
+		407A0CDE2707D0CD00F481C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7D6A2704334400D2BA90 /* SceneDelegate.swift */; platformFilter = ios; };
+		407A0CE02707D0CD00F481C5 /* AppDelegate_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7D6C2704335A00D2BA90 /* AppDelegate_iOS.swift */; platformFilter = ios; };
 		407A0CE12707D0CD00F481C5 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7D0027024F5D00D2BA90 /* PersistenceController.swift */; };
 		407A0CEA2707D0CD00F481C5 /* CoreDataCloudKitShare.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 407D7CF627024EBE00D2BA90 /* CoreDataCloudKitShare.xcdatamodeld */; };
 		407A0CED2707D0CD00F481C5 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 407D7D092702502400D2BA90 /* CloudKit.framework */; };
@@ -41,18 +47,14 @@
 		407D7D0427024F5D00D2BA90 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7D0027024F5D00D2BA90 /* PersistenceController.swift */; };
 		407D7D0A2702502400D2BA90 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 407D7D092702502400D2BA90 /* CloudKit.framework */; };
 		407D7D102702556700D2BA90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 407D7D0F2702556700D2BA90 /* Assets.xcassets */; };
-		407D7D162702556800D2BA90 /* CoreDataCloudKitShareOnWatch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 407D7D152702556800D2BA90 /* CoreDataCloudKitShareOnWatch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		407D7D1B2702556800D2BA90 /* CoreDataCloudKitShareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7D1A2702556800D2BA90 /* CoreDataCloudKitShareApp.swift */; };
-		407D7D252702556900D2BA90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 407D7D242702556900D2BA90 /* Assets.xcassets */; };
-		407D7D282702556900D2BA90 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 407D7D272702556900D2BA90 /* Preview Assets.xcassets */; };
-		407D7D2D2702556900D2BA90 /* CoreDataCloudKitShareOnWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 407D7D0D2702556600D2BA90 /* CoreDataCloudKitShareOnWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		407D7D2D2702556900D2BA90 /* CoreDataCloudKitShareOnWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 407D7D0D2702556600D2BA90 /* CoreDataCloudKitShareOnWatch.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		407D7D39270262EF00D2BA90 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 407D7D38270262EF00D2BA90 /* CloudKit.framework */; };
-		407D7D3B2702A2A400D2BA90 /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7D3A2702A2A400D2BA90 /* PhotoPicker.swift */; };
 		407D7D5F2703878000D2BA90 /* PersistenceController+Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7D5E2703878000D2BA90 /* PersistenceController+Photo.swift */; };
 		407D7D612703880E00D2BA90 /* PersistenceController+Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7D602703880E00D2BA90 /* PersistenceController+Tag.swift */; };
 		407D7D632703A27000D2BA90 /* PhotoGridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7D622703A27000D2BA90 /* PhotoGridItemView.swift */; };
-		407D7D6B2704334400D2BA90 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7D6A2704334400D2BA90 /* SceneDelegate.swift */; };
-		407D7D6D2704335A00D2BA90 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7D6C2704335A00D2BA90 /* AppDelegate.swift */; };
+		407D7D6B2704334400D2BA90 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7D6A2704334400D2BA90 /* SceneDelegate.swift */; platformFilter = ios; };
+		407D7D6D2704335A00D2BA90 /* AppDelegate_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7D6C2704335A00D2BA90 /* AppDelegate_iOS.swift */; platformFilter = ios; };
 		408BD4DA2713B29900294A81 /* AddToExistingShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408BD4D92713B29900294A81 /* AddToExistingShareView.swift */; };
 		408BD4DC2713F0F400294A81 /* ManagingSharesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408BD4DB2713F0F400294A81 /* ManagingSharesView.swift */; };
 		40AE53F12719F98C00B978CA /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40AE53F02719F98C00B978CA /* CoreDataHelper.swift */; };
@@ -63,23 +65,19 @@
 		40B62023273AFD9700B27D3D /* PersistenceController+Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40527E18270BC8FE00DB2901 /* PersistenceController+Rating.swift */; };
 		40B62024273AFD9900B27D3D /* PersistenceController+Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7D602703880E00D2BA90 /* PersistenceController+Tag.swift */; };
 		40B62027273AFDC600B27D3D /* PersistenceController+Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7D5E2703878000D2BA90 /* PersistenceController+Photo.swift */; };
-		40BACC0B2740646E00F12CBD /* PersistenceController+Share.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074428A270FB2B5009CABC7 /* PersistenceController+Share.swift */; };
+		40BACC0B2740646E00F12CBD /* PersistenceController+SharingUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074428A270FB2B5009CABC7 /* PersistenceController+SharingUtilities.swift */; };
+		40BBEB0129AC1DDC00257BB2 /* SwiftUIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403177D72742F4F70048F2DC /* SwiftUIHelper.swift */; };
 		40BF6728273B0B7400ED9D2D /* CoreDataCloudKitShareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7CEB27024EBD00D2BA90 /* CoreDataCloudKitShareApp.swift */; };
 		40BF672E273B17A500ED9D2D /* PersistenceController+History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BF672C273B17A200ED9D2D /* PersistenceController+History.swift */; };
 		40BF672F273B17A900ED9D2D /* PersistenceController+History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BF672C273B17A200ED9D2D /* PersistenceController+History.swift */; };
 		40C6211E2755AFB500015301 /* SharePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C6211D2755AFB500015301 /* SharePickerView.swift */; };
 		40C6211F2755AFB500015301 /* SharePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C6211D2755AFB500015301 /* SharePickerView.swift */; };
 		40D68E942719101A00FB9B78 /* PersistenceController+Deduplicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D68E932719101A00FB9B78 /* PersistenceController+Deduplicate.swift */; };
+		40DD8C6729B50F1C00F33278 /* PhotoSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DD8C6629B50F1C00F33278 /* PhotoSelectorView.swift */; };
+		40DD8C6829B50F1C00F33278 /* PhotoSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DD8C6629B50F1C00F33278 /* PhotoSelectorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		407D7D172702556800D2BA90 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 407D7CE027024EBD00D2BA90 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 407D7D142702556800D2BA90;
-			remoteInfo = "CoreDataCloudKitShareOnWatch WatchKit Extension";
-		};
 		407D7D2B2702556900D2BA90 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 407D7CE027024EBD00D2BA90 /* Project object */;
@@ -111,30 +109,23 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		407D7D312702556900D2BA90 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				407D7D162702556800D2BA90 /* CoreDataCloudKitShareOnWatch WatchKit Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		401C06EC276E9D790024D92C /* ExtensionDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		401C06EC276E9D790024D92C /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4026B867270A19390060F0F7 /* TaggingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaggingView.swift; sourceTree = "<group>"; };
+		4027C7EF29AC195E00D62EE9 /* AppDelegate_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate_macOS.swift; sourceTree = "<group>"; };
 		403177D72742F4F70048F2DC /* SwiftUIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIHelper.swift; sourceTree = "<group>"; };
 		4035B60D27150DA100F46D6B /* PhotoContextMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoContextMenu.swift; sourceTree = "<group>"; };
+		403C735E29BBA7FA0098ADE2 /* PersistenceController+UISharingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistenceController+UISharingController.swift"; sourceTree = "<group>"; };
+		403C736029BBA8680098ADE2 /* PersistenceController+NSSharingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistenceController+NSSharingService.swift"; sourceTree = "<group>"; };
+		4040ECEF29A98CF000E9217F /* CloudKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitHelper.swift; sourceTree = "<group>"; };
 		40527E16270BBE3400DB2901 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		40527E18270BC8FE00DB2901 /* PersistenceController+Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistenceController+Rating.swift"; sourceTree = "<group>"; };
 		405831692767DCDE0044E86D /* FullImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullImageView.swift; sourceTree = "<group>"; };
 		406193C22755686C006EC5D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		40744288270FAFB3009CABC7 /* ParticipantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantView.swift; sourceTree = "<group>"; };
-		4074428A270FB2B5009CABC7 /* PersistenceController+Share.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistenceController+Share.swift"; sourceTree = "<group>"; };
+		4074428A270FB2B5009CABC7 /* PersistenceController+SharingUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistenceController+SharingUtilities.swift"; sourceTree = "<group>"; };
 		407A0CF62707D0CD00F481C5 /* InitializeCloudKitSchema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InitializeCloudKitSchema.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		407D7CE827024EBD00D2BA90 /* CoreDataCloudKitShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataCloudKitShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		407D7CEB27024EBD00D2BA90 /* CoreDataCloudKitShareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCloudKitShareApp.swift; sourceTree = "<group>"; };
@@ -148,26 +139,22 @@
 		407D7D092702502400D2BA90 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		407D7D0D2702556600D2BA90 /* CoreDataCloudKitShareOnWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataCloudKitShareOnWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		407D7D0F2702556700D2BA90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		407D7D152702556800D2BA90 /* CoreDataCloudKitShareOnWatch WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "CoreDataCloudKitShareOnWatch WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		407D7D1A2702556800D2BA90 /* CoreDataCloudKitShareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataCloudKitShareApp.swift; sourceTree = "<group>"; };
-		407D7D242702556900D2BA90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		407D7D272702556900D2BA90 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		407D7D292702556900D2BA90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		407D7D36270262C500D2BA90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		407D7D37270262ED00D2BA90 /* CoreDataCloudKitShareOnWatch WatchKit Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "CoreDataCloudKitShareOnWatch WatchKit Extension.entitlements"; sourceTree = "<group>"; };
+		407D7D37270262ED00D2BA90 /* CoreDataCloudKitShareOnWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoreDataCloudKitShareOnWatch.entitlements; sourceTree = "<group>"; };
 		407D7D38270262EF00D2BA90 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
-		407D7D3A2702A2A400D2BA90 /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		407D7D5E2703878000D2BA90 /* PersistenceController+Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistenceController+Photo.swift"; sourceTree = "<group>"; };
 		407D7D602703880E00D2BA90 /* PersistenceController+Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistenceController+Tag.swift"; sourceTree = "<group>"; };
 		407D7D622703A27000D2BA90 /* PhotoGridItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGridItemView.swift; sourceTree = "<group>"; };
 		407D7D6A2704334400D2BA90 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		407D7D6C2704335A00D2BA90 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		407D7D6C2704335A00D2BA90 /* AppDelegate_iOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate_iOS.swift; sourceTree = "<group>"; };
 		408BD4D92713B29900294A81 /* AddToExistingShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToExistingShareView.swift; sourceTree = "<group>"; };
 		408BD4DB2713F0F400294A81 /* ManagingSharesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagingSharesView.swift; sourceTree = "<group>"; };
 		40AE53F02719F98C00B978CA /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		40BF672C273B17A200ED9D2D /* PersistenceController+History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistenceController+History.swift"; sourceTree = "<group>"; };
 		40C6211D2755AFB500015301 /* SharePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePickerView.swift; sourceTree = "<group>"; };
 		40D68E932719101A00FB9B78 /* PersistenceController+Deduplicate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistenceController+Deduplicate.swift"; sourceTree = "<group>"; };
+		40DD8C6629B50F1C00F33278 /* PhotoSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorView.swift; sourceTree = "<group>"; };
 		987F6E8525D5DA6A6A97A01E /* SampleCode.xcconfig */ = {isa = PBXFileReference; name = SampleCode.xcconfig; path = Configuration/SampleCode.xcconfig; sourceTree = "<group>"; };
 		B24732F33201E3732F237ECB /* LICENSE.txt */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -215,6 +202,7 @@
 				407D7CED27024EBD00D2BA90 /* PhotoGridView.swift */,
 				407D7D622703A27000D2BA90 /* PhotoGridItemView.swift */,
 				4035B60D27150DA100F46D6B /* PhotoContextMenu.swift */,
+				40DD8C6629B50F1C00F33278 /* PhotoSelectorView.swift */,
 				4026B867270A19390060F0F7 /* TaggingView.swift */,
 				40527E16270BBE3400DB2901 /* RatingView.swift */,
 				40744288270FAFB3009CABC7 /* ParticipantView.swift */,
@@ -234,7 +222,6 @@
 				403177D52742DF030048F2DC /* SwiftUI */,
 				407D7CEA27024EBD00D2BA90 /* CoreDataCloudKitShare */,
 				407D7D0E2702556600D2BA90 /* CoreDataCloudKitShareOnWatch */,
-				407D7D192702556800D2BA90 /* CoreDataCloudKitShareOnWatch WatchKit Extension */,
 				407D7CE927024EBD00D2BA90 /* Products */,
 				407D7D082702502400D2BA90 /* Frameworks */,
 				2688BA1F747563B6A38275FD /* Configuration */,
@@ -247,7 +234,6 @@
 			children = (
 				407D7CE827024EBD00D2BA90 /* CoreDataCloudKitShare.app */,
 				407D7D0D2702556600D2BA90 /* CoreDataCloudKitShareOnWatch.app */,
-				407D7D152702556800D2BA90 /* CoreDataCloudKitShareOnWatch WatchKit Extension.appex */,
 				407A0CF62707D0CD00F481C5 /* InitializeCloudKitSchema.app */,
 			);
 			name = Products;
@@ -257,9 +243,9 @@
 			isa = PBXGroup;
 			children = (
 				407D7D072702502200D2BA90 /* CoreDataCloudKitShare.entitlements */,
-				407D7D3A2702A2A400D2BA90 /* PhotoPicker.swift */,
 				407D7CEB27024EBD00D2BA90 /* CoreDataCloudKitShareApp.swift */,
-				407D7D6C2704335A00D2BA90 /* AppDelegate.swift */,
+				407D7D6C2704335A00D2BA90 /* AppDelegate_iOS.swift */,
+				4027C7EF29AC195E00D62EE9 /* AppDelegate_macOS.swift */,
 				407D7D6A2704334400D2BA90 /* SceneDelegate.swift */,
 				407D7D36270262C500D2BA90 /* Info.plist */,
 				407D7CEF27024EBE00D2BA90 /* Assets.xcassets */,
@@ -279,6 +265,7 @@
 		407D7CFF27024F5D00D2BA90 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				4040ECEF29A98CF000E9217F /* CloudKitHelper.swift */,
 				40AE53F02719F98C00B978CA /* CoreDataHelper.swift */,
 				407D7D0027024F5D00D2BA90 /* PersistenceController.swift */,
 				407D7D5E2703878000D2BA90 /* PersistenceController+Photo.swift */,
@@ -286,7 +273,9 @@
 				40527E18270BC8FE00DB2901 /* PersistenceController+Rating.swift */,
 				40BF672C273B17A200ED9D2D /* PersistenceController+History.swift */,
 				40D68E932719101A00FB9B78 /* PersistenceController+Deduplicate.swift */,
-				4074428A270FB2B5009CABC7 /* PersistenceController+Share.swift */,
+				4074428A270FB2B5009CABC7 /* PersistenceController+SharingUtilities.swift */,
+				403C735E29BBA7FA0098ADE2 /* PersistenceController+UISharingController.swift */,
+				403C736029BBA8680098ADE2 /* PersistenceController+NSSharingService.swift */,
 				407D7CF627024EBE00D2BA90 /* CoreDataCloudKitShare.xcdatamodeld */,
 			);
 			path = Persistence;
@@ -304,31 +293,13 @@
 		407D7D0E2702556600D2BA90 /* CoreDataCloudKitShareOnWatch */ = {
 			isa = PBXGroup;
 			children = (
+				407D7D37270262ED00D2BA90 /* CoreDataCloudKitShareOnWatch.entitlements */,
+				407D7D1A2702556800D2BA90 /* CoreDataCloudKitShareApp.swift */,
+				401C06EC276E9D790024D92C /* AppDelegate.swift */,
 				406193C22755686C006EC5D8 /* Info.plist */,
 				407D7D0F2702556700D2BA90 /* Assets.xcassets */,
 			);
 			path = CoreDataCloudKitShareOnWatch;
-			sourceTree = "<group>";
-		};
-		407D7D192702556800D2BA90 /* CoreDataCloudKitShareOnWatch WatchKit Extension */ = {
-			isa = PBXGroup;
-			children = (
-				407D7D37270262ED00D2BA90 /* CoreDataCloudKitShareOnWatch WatchKit Extension.entitlements */,
-				407D7D1A2702556800D2BA90 /* CoreDataCloudKitShareApp.swift */,
-				401C06EC276E9D790024D92C /* ExtensionDelegate.swift */,
-				407D7D242702556900D2BA90 /* Assets.xcassets */,
-				407D7D292702556900D2BA90 /* Info.plist */,
-				407D7D262702556900D2BA90 /* Preview Content */,
-			);
-			path = "CoreDataCloudKitShareOnWatch WatchKit Extension";
-			sourceTree = "<group>";
-		};
-		407D7D262702556900D2BA90 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				407D7D272702556900D2BA90 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		8909BB0CE269AA3B6CDD6200 /* LICENSE */ = {
@@ -385,34 +356,17 @@
 			buildConfigurationList = 407D7D352702556900D2BA90 /* Build configuration list for PBXNativeTarget "CoreDataCloudKitShareOnWatch" */;
 			buildPhases = (
 				407D7D0B2702556600D2BA90 /* Resources */,
-				407D7D312702556900D2BA90 /* Embed App Extensions */,
+				407D7D112702556800D2BA90 /* Sources */,
+				407D7D122702556800D2BA90 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				407D7D182702556800D2BA90 /* PBXTargetDependency */,
 			);
 			name = CoreDataCloudKitShareOnWatch;
 			productName = CoreDataCloudKitShareOnWatch;
 			productReference = 407D7D0D2702556600D2BA90 /* CoreDataCloudKitShareOnWatch.app */;
-			productType = "com.apple.product-type.application.watchapp2";
-		};
-		407D7D142702556800D2BA90 /* CoreDataCloudKitShareOnWatch WatchKit Extension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 407D7D342702556900D2BA90 /* Build configuration list for PBXNativeTarget "CoreDataCloudKitShareOnWatch WatchKit Extension" */;
-			buildPhases = (
-				407D7D112702556800D2BA90 /* Sources */,
-				407D7D122702556800D2BA90 /* Frameworks */,
-				407D7D132702556800D2BA90 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "CoreDataCloudKitShareOnWatch WatchKit Extension";
-			productName = "CoreDataCloudKitShareOnWatch WatchKit Extension";
-			productReference = 407D7D152702556800D2BA90 /* CoreDataCloudKitShareOnWatch WatchKit Extension.appex */;
-			productType = "com.apple.product-type.watchkit2-extension";
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -422,16 +376,13 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1300;
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1420;
 				ORGANIZATIONNAME = Apple;
 				TargetAttributes = {
 					407D7CE727024EBD00D2BA90 = {
 						CreatedOnToolsVersion = 13.0;
 					};
 					407D7D0C2702556600D2BA90 = {
-						CreatedOnToolsVersion = 13.0;
-					};
-					407D7D142702556800D2BA90 = {
 						CreatedOnToolsVersion = 13.0;
 					};
 				};
@@ -452,7 +403,6 @@
 				407D7CE727024EBD00D2BA90 /* CoreDataCloudKitShare */,
 				407A0CD92707D0CD00F481C5 /* InitializeCloudKitSchema */,
 				407D7D0C2702556600D2BA90 /* CoreDataCloudKitShareOnWatch */,
-				407D7D142702556800D2BA90 /* CoreDataCloudKitShareOnWatch WatchKit Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -484,15 +434,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		407D7D132702556800D2BA90 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				407D7D282702556900D2BA90 /* Preview Assets.xcassets in Resources */,
-				407D7D252702556900D2BA90 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -500,9 +441,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4027C7F129AC1A3200D62EE9 /* AppDelegate_macOS.swift in Sources */,
 				407A0CDE2707D0CD00F481C5 /* SceneDelegate.swift in Sources */,
-				407A0CE02707D0CD00F481C5 /* AppDelegate.swift in Sources */,
+				407A0CE02707D0CD00F481C5 /* AppDelegate_iOS.swift in Sources */,
 				407A0CE12707D0CD00F481C5 /* PersistenceController.swift in Sources */,
+				40BBEB0129AC1DDC00257BB2 /* SwiftUIHelper.swift in Sources */,
 				407A0CEA2707D0CD00F481C5 /* CoreDataCloudKitShare.xcdatamodeld in Sources */,
 				40BF6728273B0B7400ED9D2D /* CoreDataCloudKitShareApp.swift in Sources */,
 			);
@@ -514,24 +457,28 @@
 			files = (
 				407D7D6B2704334400D2BA90 /* SceneDelegate.swift in Sources */,
 				40AE53F12719F98C00B978CA /* CoreDataHelper.swift in Sources */,
-				407D7D6D2704335A00D2BA90 /* AppDelegate.swift in Sources */,
+				407D7D6D2704335A00D2BA90 /* AppDelegate_iOS.swift in Sources */,
 				40BF672F273B17A900ED9D2D /* PersistenceController+History.swift in Sources */,
 				408BD4DA2713B29900294A81 /* AddToExistingShareView.swift in Sources */,
+				403C736229BBAD1E0098ADE2 /* PersistenceController+NSSharingService.swift in Sources */,
 				4058316A2767DCDE0044E86D /* FullImageView.swift in Sources */,
 				4035B60E27150DA100F46D6B /* PhotoContextMenu.swift in Sources */,
-				4074428B270FB2B5009CABC7 /* PersistenceController+Share.swift in Sources */,
+				4074428B270FB2B5009CABC7 /* PersistenceController+SharingUtilities.swift in Sources */,
 				40D68E942719101A00FB9B78 /* PersistenceController+Deduplicate.swift in Sources */,
 				407D7D0427024F5D00D2BA90 /* PersistenceController.swift in Sources */,
-				407D7D3B2702A2A400D2BA90 /* PhotoPicker.swift in Sources */,
 				40744289270FAFB3009CABC7 /* ParticipantView.swift in Sources */,
 				403177D82742F4F70048F2DC /* SwiftUIHelper.swift in Sources */,
 				407D7CEE27024EBD00D2BA90 /* PhotoGridView.swift in Sources */,
 				408BD4DC2713F0F400294A81 /* ManagingSharesView.swift in Sources */,
+				4027C7F029AC195E00D62EE9 /* AppDelegate_macOS.swift in Sources */,
 				40527E19270BC8FE00DB2901 /* PersistenceController+Rating.swift in Sources */,
+				4040ECF029A98CF000E9217F /* CloudKitHelper.swift in Sources */,
 				407D7D612703880E00D2BA90 /* PersistenceController+Tag.swift in Sources */,
 				407D7CEC27024EBD00D2BA90 /* CoreDataCloudKitShareApp.swift in Sources */,
 				40527E17270BBE3400DB2901 /* RatingView.swift in Sources */,
 				407D7D5F2703878000D2BA90 /* PersistenceController+Photo.swift in Sources */,
+				403C735F29BBA7FA0098ADE2 /* PersistenceController+UISharingController.swift in Sources */,
+				40DD8C6729B50F1C00F33278 /* PhotoSelectorView.swift in Sources */,
 				407D7CF827024EBE00D2BA90 /* CoreDataCloudKitShare.xcdatamodeld in Sources */,
 				407D7D632703A27000D2BA90 /* PhotoGridItemView.swift in Sources */,
 				40C6211E2755AFB500015301 /* SharePickerView.swift in Sources */,
@@ -554,13 +501,15 @@
 				403177DC274310690048F2DC /* AddToExistingShareView.swift in Sources */,
 				40B62027273AFDC600B27D3D /* PersistenceController+Photo.swift in Sources */,
 				403177DE27432CE40048F2DC /* PhotoContextMenu.swift in Sources */,
-				401C06ED276E9D790024D92C /* ExtensionDelegate.swift in Sources */,
+				401C06ED276E9D790024D92C /* AppDelegate.swift in Sources */,
 				403177D92742F4F70048F2DC /* SwiftUIHelper.swift in Sources */,
 				403177D42742DB270048F2DC /* TaggingView.swift in Sources */,
 				40B62022273AFD9300B27D3D /* PersistenceController+Deduplicate.swift in Sources */,
 				4058316B2767F0ED0044E86D /* FullImageView.swift in Sources */,
+				40DD8C6829B50F1C00F33278 /* PhotoSelectorView.swift in Sources */,
 				407D7D1B2702556800D2BA90 /* CoreDataCloudKitShareApp.swift in Sources */,
-				40BACC0B2740646E00F12CBD /* PersistenceController+Share.swift in Sources */,
+				40BACC0B2740646E00F12CBD /* PersistenceController+SharingUtilities.swift in Sources */,
+				4040ECF229A98DD400E9217F /* CloudKitHelper.swift in Sources */,
 				40C6211F2755AFB500015301 /* SharePickerView.swift in Sources */,
 				403177D62742F4B40048F2DC /* PhotoGridItemView.swift in Sources */,
 				40B62023273AFD9700B27D3D /* PersistenceController+Rating.swift in Sources */,
@@ -571,13 +520,9 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		407D7D182702556800D2BA90 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 407D7D142702556800D2BA90 /* CoreDataCloudKitShareOnWatch WatchKit Extension */;
-			targetProxy = 407D7D172702556800D2BA90 /* PBXContainerItemProxy */;
-		};
 		407D7D2C2702556900D2BA90 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = 407D7D0C2702556600D2BA90 /* CoreDataCloudKitShareOnWatch */;
 			targetProxy = 407D7D2B2702556900D2BA90 /* PBXContainerItemProxy */;
 		};
@@ -598,12 +543,11 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CoreDataCloudKitShare/InitializeCloudKitSchema-Info.plist";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -612,6 +556,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.CoreDataCloudKitShare${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG InitializeCloudKitSchema";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -633,12 +580,11 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "CoreDataCloudKitShare/InitializeCloudKitSchema-Info.plist";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -647,6 +593,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.CoreDataCloudKitShare${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -785,20 +734,23 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CoreDataCloudKitShare/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.CoreDataCloudKitShare${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -819,20 +771,23 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CoreDataCloudKitShare/Info.plist;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.3;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.CoreDataCloudKitShare${SAMPLE_CODE_DISAMBIGUATOR}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -845,16 +800,23 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CoreDataCloudKitShareOnWatch/CoreDataCloudKitShareOnWatch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				IBSC_MODULE = CoreDataCloudKitShareOnWatch_WatchKit_Extension;
 				INFOPLIST_FILE = CoreDataCloudKitShareOnWatch/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CoreDataCloudKitShareOnWatch;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.example.apple-samplecode.CoreDataCloudKitShare";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.CoreDataCloudKitShare${SAMPLE_CODE_DISAMBIGUATOR}.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -864,7 +826,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
 			};
 			name = Debug;
 		};
@@ -874,16 +836,23 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CoreDataCloudKitShareOnWatch/CoreDataCloudKitShareOnWatch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
-				IBSC_MODULE = CoreDataCloudKitShareOnWatch_WatchKit_Extension;
 				INFOPLIST_FILE = CoreDataCloudKitShareOnWatch/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CoreDataCloudKitShareOnWatch;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.example.apple-samplecode.CoreDataCloudKitShare";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.CoreDataCloudKitShare${SAMPLE_CODE_DISAMBIGUATOR}.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -893,73 +862,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
-			};
-			name = Release;
-		};
-		407D7D322702556900D2BA90 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 987F6E8525D5DA6A6A97A01E /* SampleCode.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_ENTITLEMENTS = "CoreDataCloudKitShareOnWatch WatchKit Extension/CoreDataCloudKitShareOnWatch WatchKit Extension.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"CoreDataCloudKitShareOnWatch WatchKit Extension/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "CoreDataCloudKitShareOnWatch WatchKit Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "CoreDataCloudKitShareOnWatch WatchKit Extension";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.CoreDataCloudKitShare${SAMPLE_CODE_DISAMBIGUATOR}.watchkitapp.watchkitextension";
-				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
-			};
-			name = Debug;
-		};
-		407D7D332702556900D2BA90 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 987F6E8525D5DA6A6A97A01E /* SampleCode.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
-				CODE_SIGN_ENTITLEMENTS = "CoreDataCloudKitShareOnWatch WatchKit Extension/CoreDataCloudKitShareOnWatch WatchKit Extension.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"CoreDataCloudKitShareOnWatch WatchKit Extension/Preview Content\"";
-				DEVELOPMENT_TEAM = "";
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "CoreDataCloudKitShareOnWatch WatchKit Extension/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "CoreDataCloudKitShareOnWatch WatchKit Extension";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.example.apple-samplecode.CoreDataCloudKitShare${SAMPLE_CODE_DISAMBIGUATOR}.watchkitapp.watchkitextension";
-				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 8.0;
+				WATCHOS_DEPLOYMENT_TARGET = 9.4;
 			};
 			name = Release;
 		};
@@ -989,15 +892,6 @@
 			buildConfigurations = (
 				407D7CFC27024EBE00D2BA90 /* Debug */,
 				407D7CFD27024EBE00D2BA90 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		407D7D342702556900D2BA90 /* Build configuration list for PBXNativeTarget "CoreDataCloudKitShareOnWatch WatchKit Extension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				407D7D322702556900D2BA90 /* Debug */,
-				407D7D332702556900D2BA90 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,5 +1,5 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+See the LICENSE.txt file for this sample’s licensing information.
 
 Abstract:
 Extensions that add convenience methods to Core Data.
@@ -43,7 +43,7 @@ extension NSManagedObjectContext {
         case toggleTagging, deleteTag, addTag
         case addRating, deleteRating
         case sheetOnDismiss
-        case deduplicateAndWait
+        case deduplicateAndWait, removeDeduplicatedTags
     }
     /**
      Save a context and handle the save error. This sample simply prints the error message. Real apps can
@@ -60,13 +60,14 @@ extension NSManagedObjectContext {
     }
 }
 
-/**
- A convenience method for creating background contexts that specify the app as their transaction author.
- */
 extension NSPersistentCloudKitContainer {
+    /**
+     A convenience method for creating background contexts that specify the app as their transaction author.
+     */
     func newTaskContext() -> NSManagedObjectContext {
         let context = newBackgroundContext()
         context.transactionAuthor = TransactionAuthor.app
+        context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         return context
     }
     

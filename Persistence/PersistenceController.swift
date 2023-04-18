@@ -1,5 +1,5 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+See the LICENSE.txt file for this sample’s licensing information.
 
 Abstract:
 A class that sets up the Core Data stack.
@@ -104,13 +104,16 @@ class PersistenceController: NSObject, ObservableObject {
 
         /**
          Run initializeCloudKitSchema() once to update the CloudKit schema every time you change the Core Data model.
+         Dispatch to the next runloop in the main queue to avoid blocking AppKit app life-cycle delegate methods.
          Don't call this code in the production environment.
          */
         #if InitializeCloudKitSchema
-        do {
-            try container.initializeCloudKitSchema()
-        } catch {
-            print("\(#function): initializeCloudKitSchema: \(error)")
+        DispatchQueue.main.async {
+            do {
+                try container.initializeCloudKitSchema()
+            } catch {
+                print("\(#function): initializeCloudKitSchema: \(error)")
+            }
         }
         #else
         container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
@@ -133,7 +136,6 @@ class PersistenceController: NSObject, ObservableObject {
         /**
          Observe the following notifications:
          - The remote change notifications from container.persistentStoreCoordinator.
-         - The .NSManagedObjectContextDidSave notifications from any context.
          - The event change notifications from the container.
          */
         NotificationCenter.default.addObserver(self, selector: #selector(storeRemoteChange(_:)),
@@ -159,7 +161,7 @@ class PersistenceController: NSObject, ObservableObject {
     lazy var cloudKitContainer: CKContainer = {
         return CKContainer(identifier: gCloudKitContainerIdentifier)
     }()
-        
+    
     /**
      An operation queue for handling history-processing tasks: watching changes, deduplicating tags, and triggering UI updates, if needed.
      */

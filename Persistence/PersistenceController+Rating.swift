@@ -1,5 +1,5 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+See the LICENSE.txt file for this sample’s licensing information.
 
 Abstract:
 An extension that wraps the related methods for managing ratings.
@@ -8,7 +8,7 @@ An extension that wraps the related methods for managing ratings.
 import Foundation
 import CoreData
 
-// MARK: - Convenient methods for managing ratings.
+// MARK: - Convenience methods for managing ratings.
 //
 extension PersistenceController {
    

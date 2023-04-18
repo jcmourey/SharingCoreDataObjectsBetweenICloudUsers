@@ -1,8 +1,8 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+See the LICENSE.txt file for this sample’s licensing information.
 
 Abstract:
-Extensions that wrap the related methods for persistence history processing.
+Extensions that wrap the related methods for persistent history processing.
 */
 
 import CoreData
@@ -24,24 +24,9 @@ extension PersistenceController {
         }
         processHistoryAsynchronously(storeUUID: storeUUID)
     }
-
-    /**
-     Handle the container's event change notifications (NSPersistentCloudKitContainer.eventChangedNotification).
-     */
-    @objc
-    func containerEventChanged(_ notification: Notification) {
-         guard let value = notification.userInfo?[NSPersistentCloudKitContainer.eventNotificationUserInfoKey],
-              let event = value as? NSPersistentCloudKitContainer.Event else {
-            print("\(#function): Failed to retrieve the container event from notification.userInfo.")
-            return
-        }
-        if event.error != nil {
-            print("\(#function): Received a persistent CloudKit container event changed notification.\n\(event)")
-        }
-    }
 }
 
-// MARK: - Process persistent historty asynchronously.
+// MARK: - Process persistent history asynchronously.
 //
 extension PersistenceController {
     /**
@@ -51,7 +36,6 @@ extension PersistenceController {
     private func processHistoryAsynchronously(storeUUID: String) {
         historyQueue.addOperation {
             let taskContext = self.persistentContainer.newTaskContext()
-            taskContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
             taskContext.performAndWait {
                 self.performHistoryProcessing(storeUUID: storeUUID, performingContext: taskContext)
             }
@@ -81,7 +65,7 @@ extension PersistenceController {
         // print("\(#function): Processing transactions: \(transactions.count).")
 
         /**
-         Post transactions so observers can update the UI, if necessary, even when transactions is empty
+         Post transactions so observers can update the UI, even when transactions is empty
          because when a share changes, Core Data triggers a store remote change notification with no transaction.
          */
         let userInfo: [String: Any] = [UserInfoKey.storeUUID: storeUUID, UserInfoKey.transactions: transactions]
@@ -94,7 +78,7 @@ extension PersistenceController {
         }
         
         /**
-         Limit to the private store so only owners can deduplicate the tags. Owners have full access to the private database, and so
+         Limit to the private store so only owners deduplicate the tags. Owners have full access to the private database, and so
          don't need to worry about the permissions.
          */
         guard !transactions.isEmpty, storeUUID == privatePersistentStore.identifier else {

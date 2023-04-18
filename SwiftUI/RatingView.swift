@@ -1,5 +1,5 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+See the LICENSE.txt file for this sample’s licensing information.
 
 Abstract:
 A SwiftUI view that manages photo ratings.
@@ -35,7 +35,7 @@ struct RatingView: View {
     }
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 if wasPhotoDeleted {
                     Text("The photo for rating was deleted remotely.").padding()
@@ -45,26 +45,19 @@ struct RatingView: View {
                 }
             }
             .toolbar {
-                ToolbarItem(placement: .automatic) {
+                ToolbarItem(placement: .dismiss) {
                     Button("Dismiss") { activeSheet = nil }
                 }
             }
-            .listStyle(.plain)
-            .navigationTitle("Ratings")
+            .listStyle(.clearRowShape)
+            .navigationTitle("Rating")
         }
+        .frame(idealWidth: Layout.sheetIdealWidth, idealHeight: Layout.sheetIdealHeight)
         .onReceive(NotificationCenter.default.storeDidChangePublisher) { _ in
             wasPhotoDeleted = photo.isDeleted
         }
     }
     
-    /**
-     List -> Section header + section content triggers a strange animation when deleting an item.
-     Moving the header out (like below) fixes the animation issue, but the toolbar item doesn't work in watchOS.
-     SectionHeader().padding(EdgeInsets(top: 5, leading: 10, bottom: 0, trailing: 0))
-     List {
-         SectionContent()
-     }
-     */
     @ViewBuilder
     private func ratingListView() -> some View {
         ZStack {
@@ -97,6 +90,7 @@ struct RatingView: View {
             }
         }
         .onDelete(perform: deleteRatings)
+        .emptyListPrompt(ratings.isEmpty, prompt: "No rating.")
     }
         
     private func deleteRatings(offsets: IndexSet) {
@@ -127,16 +121,11 @@ struct RatingListHeader: View {
                 Spacer().frame(minWidth: 1, idealWidth: 20, maxWidth: 30)
             }
             Spacer()
-            Button(action: addRating) {
-                Image(systemName: "plus.circle")
-                    .imageScale(.large)
-                    .font(.system(size: 18))
+            IconOnlyButton("Add", systemImage: "plus.circle", font: .system(size: 20)) {
+                addRating()
             }
-            .buttonStyle(.plain)
         }
-        .frame(height: 30)
-        .padding(5)
-        .background(Color.listHeaderBackground)
+        .padding([.bottom])
     }
     /**
      Toggle the progress view.

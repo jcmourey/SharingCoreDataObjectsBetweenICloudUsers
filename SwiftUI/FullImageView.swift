@@ -1,5 +1,5 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+See the LICENSE.txt file for this sample’s licensing information.
 
 Abstract:
 A SwiftUI view that shows a scrollable full-size image.
@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 struct FullImageView: View {
-    @Binding var activeCover: ActiveCover?
+    @Binding var activeSheet: ActiveSheet?
     var photo: Photo
     
     private var photoImage: UIImage? {
@@ -18,7 +18,7 @@ struct FullImageView: View {
     }
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 if let image = photoImage {
                     ScrollView([.horizontal, .vertical]) {
@@ -30,12 +30,15 @@ struct FullImageView: View {
                 }
             }
             .toolbar {
-                ToolbarItem(placement: .automatic) {
-                    Button("Dismiss") { activeCover = nil }
+                ToolbarItem(placement: .dismiss) {
+                    Button("Dismiss") {
+                        activeSheet = nil
+                    }
                 }
             }
             .listStyle(.plain)
             .navigationTitle("Full Size Photo")
         }
+        .frame(idealWidth: Layout.sheetIdealWidth, idealHeight: Layout.sheetIdealHeight)
     }
 }

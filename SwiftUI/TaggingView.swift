@@ -1,5 +1,5 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+See the LICENSE.txt file for this sample’s licensing information.
 
 Abstract:
 A SwiftUI view that manages photo tagging.
@@ -10,10 +10,7 @@ import CoreData
 
 struct TaggingView: View {
     @Binding var activeSheet: ActiveSheet?
-    
-    @State private var filterTagName = ""
-    @State private var wasPhotoDeleted: Bool
-
+    @State private var wasPhotoDeleted: Bool = false
     private let photo: Photo
     /**
      Retrieving the photo's persistent store (photo.persistentStore) is expensive, so cache it with a member variable
@@ -21,30 +18,33 @@ struct TaggingView: View {
      */
     private let affectedStore: NSPersistentStore?
 
-    init(activeSheet: Binding<ActiveSheet?>, photo: Photo) {
+    init(activeSheet: Binding<ActiveSheet?>, photo: Photo, affectedStore: NSPersistentStore?) {
         _activeSheet = activeSheet
         self.photo = photo
-        wasPhotoDeleted = photo.isDeleted
-        affectedStore = photo.persistentStore
+        self.affectedStore = affectedStore
     }
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 if wasPhotoDeleted {
                     Text("The photo was deleted remotely.").padding()
                     Spacer()
                 } else {
-                    FilteredTagList(filterTagName: $filterTagName, photo: photo, affectedStore: affectedStore)
+                    FilteredTagList(photo: photo, affectedStore: affectedStore)
                 }
             }
             .toolbar {
-                ToolbarItem(placement: .automatic) {
+                ToolbarItem(placement: .dismiss) {
                     Button("Dismiss") { activeSheet = nil }
                 }
             }
-            .listStyle(.plain)
-            .navigationTitle("Tags")
+            .listStyle(.clearRowShape)
+            .navigationTitle("Tag")
+        }
+        .frame(idealWidth: Layout.sheetIdealWidth, idealHeight: Layout.sheetIdealHeight)
+        .onAppear {
+            wasPhotoDeleted = photo.isDeleted
         }
         .onReceive(NotificationCenter.default.storeDidChangePublisher) { _ in
             wasPhotoDeleted = photo.isDeleted
@@ -54,7 +54,7 @@ struct TaggingView: View {
 
 struct FilteredTagList: View {
     @Environment(\.managedObjectContext) private var viewContext
-    @Binding var filterTagName: String
+    @State private var filterTagName = ""
 
     private let photo: Photo
     private let canUpdate: Bool
@@ -64,6 +64,8 @@ struct FilteredTagList: View {
 
     private let fetchRequest: FetchRequest<Tag>
     private var tags: [Tag] {
+        let predicate = Tag.predicateExcludingDeduplicatedTags(name: filterTagName, useContains: true)
+        fetchRequest.wrappedValue.nsPredicate = predicate
         let allTags = Array(fetchRequest.wrappedValue)
         return PersistenceController.shared.filterTags(from: allTags, forTagging: photo)
     }
@@ -71,45 +73,36 @@ struct FilteredTagList: View {
     /**
      Retrieving the photo's persistent store (photo.persistentStore) is expensive, so this view relies on the containing view to provide it.
      */
-    init(filterTagName: Binding<String>, photo: Photo, affectedStore: NSPersistentStore?) {
-        _filterTagName = filterTagName
+    init(photo: Photo, affectedStore: NSPersistentStore?) {
         self.photo = photo
         self.affectedStore = affectedStore
         /**
          Use a fetch request with a predicate based on the specified filtered tag name, and specify its affected store.
          */
-        var predicate = NSPredicate(value: true)
-        if !filterTagName.wrappedValue.isEmpty {
-            predicate = NSPredicate(format: "name CONTAINS[cd] %@", filterTagName.wrappedValue)
-        }
         let nsFetchRequest = Tag.fetchRequest()
         nsFetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \Tag.name, ascending: true)]
-        nsFetchRequest.predicate = predicate
         if let affectedStore = affectedStore {
             nsFetchRequest.affectedStores = [affectedStore]
         }
-        
         fetchRequest = FetchRequest(fetchRequest: nsFetchRequest, animation: .default)
-        
         let container = PersistenceController.shared.persistentContainer
         canUpdate = container.canUpdateRecord(forManagedObjectWith: photo.objectID)
     }
     
     var body: some View {
         ZStack {
-            /**
-             List -> Section header + section content triggers a strange animation when deleting an item.
-             Moving the header out (like below) fixes the animation issue, but the toolbar item doesn't work in watchOS.
-             SectionHeader().padding(EdgeInsets(top: 5, leading: 10, bottom: 0, trailing: 0))
-             List {
-                 SectionContent()
-             }
-             */
+            #if os(watchOS)
+            List {
+                sectionHeader()
+                sectionContent()
+            }
+            #else
             List {
                 Section(header: sectionHeader()) {
                     sectionContent()
                 }
             }
+            #endif
             if toggleProgress {
                 ProgressView()
             }
@@ -125,11 +118,12 @@ struct FilteredTagList: View {
     
     @ViewBuilder
     private func sectionContent() -> some View {
+        let photoTagNotDeduplicated = photo.tagsNotDeduplicated
         ForEach(tags) { tag in
             HStack {
                 Text("\(tag.name!)")
                 Spacer()
-                if let photoTags = photo.tags, photoTags.contains(tag) {
+                if let photoTags = photoTagNotDeduplicated, photoTags.contains(tag) {
                     Image(systemName: "checkmark")
                 }
             }
@@ -137,6 +131,7 @@ struct FilteredTagList: View {
             .onTapGesture { toggleTagging(tag: tag) }
         }
         .onDelete(perform: deleteTags)
+        .emptyListPrompt(tags.isEmpty, prompt: "No matched tag.")
     }
     
     private func deleteTags(offsets: IndexSet) {
@@ -174,20 +169,12 @@ struct TagListHeader: View {
 
     var body: some View {
         HStack {
-            TextField( "Name", text: $filterTagName)
-            
-            Button(action: addTag) {
-                Image(systemName: "plus.circle")
-                    .imageScale(.large)
-                    .font(.system(size: 18))
+            ClearableTextField(title: "Tag name", text: $filterTagName)
+            IconOnlyButton("Add", systemImage: "plus.circle", font: .system(size: 20)) {
+                addTag()
             }
-            .frame(width: 20)
-            .buttonStyle(.plain)
             .disabled(filterTagName.isEmpty || tags.map { $0.name }.contains(filterTagName))
         }
-        .frame(height: 30)
-        .padding(5)
-        .background(Color.listHeaderBackground)
     }
     
     private func addTag() {

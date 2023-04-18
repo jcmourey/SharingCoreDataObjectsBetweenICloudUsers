@@ -1,5 +1,5 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+See the LICENSE.txt file for this sample’s licensing information.
 
 Abstract:
 A SwiftUI view that manages the actions on a photo.
@@ -13,17 +13,18 @@ struct PhotoContextMenu: View {
     @Binding var activeSheet: ActiveSheet?
     @Binding var nextSheet: ActiveSheet?
     private let photo: Photo
-
-    @State private var isPhotoShared: Bool
-    @State private var hasAnyShare: Bool
+    /**
+     Disable the menus by default.
+     */
+    @State private var isPhotoShared: Bool = true
+    @State private var hasAnyShare: Bool = false
+    
     @State private var toggleProgress: Bool = false
     
     init(activeSheet: Binding<ActiveSheet?>, nextSheet: Binding<ActiveSheet?>, photo: Photo) {
         _activeSheet = activeSheet
         _nextSheet = nextSheet
         self.photo = photo
-        isPhotoShared = (PersistenceController.shared.existingShare(photo: photo) != nil)
-        hasAnyShare = PersistenceController.shared.shareTitles().isEmpty ? false : true
     }
 
     var body: some View {
@@ -32,12 +33,16 @@ struct PhotoContextMenu: View {
          apps use the existing share, if possible.
          */
         ZStack {
-            ScrollView {
+            MenuScrollView {
                 menuButtons()
             }
             if toggleProgress {
                 ProgressView()
             }
+        }
+        .onAppear {
+            isPhotoShared = (PersistenceController.shared.existingShare(photo: photo) != nil)
+            hasAnyShare = PersistenceController.shared.shareTitles().isEmpty ? false : true
         }
         .onReceive(NotificationCenter.default.storeDidChangePublisher) { notification in
             processStoreChangeNotification(notification)
@@ -51,48 +56,73 @@ struct PhotoContextMenu: View {
          For photos in the shared database, allow managing participation.
          */
         if PersistenceController.shared.privatePersistentStore.contains(manageObject: photo) {
-            Button("Create New Share") { createNewShare(photo: photo) }
+            #if os(watchOS)
+            Button(action: {
+                createNewShare(photo: photo)
+            }) {
+                MenuButtonLabel(title: "New Share", systemImage: "square.and.arrow.up")
+            }
             .disabled(isPhotoShared)
-            
-            Button("Add to Existing Share") { activeSheet = .sharePicker(photo) }
+            #else
+            ShareLink(item: photo, preview: SharePreview("A cool photo to share!")) {
+                MenuButtonLabel(title: "New Share", systemImage: "square.and.arrow.up")
+            }
+            .disabled(isPhotoShared)
+            #endif
+            Button(action: {
+                activeSheet = .sharePicker(photo)
+            }) {
+                MenuButtonLabel(title: "Add to Share", systemImage: "square.grid.3x1.folder.badge.plus")
+            }
             .disabled(isPhotoShared || !hasAnyShare)
         } else {
-            Button("Manage Participation") { manageParticipation(photo: photo) }
+            Button(action: {
+                manageParticipation(photo: photo)
+            }) {
+                MenuButtonLabel(title: "Participants", systemImage: "person.2")
+            }
         }
         /**
         Tagging and rating.
          */
-        Divider()
-        Button("Tag") { activeSheet = .taggingView(photo) }
-        Button("Rate") { activeSheet = .ratingView(photo) }
+        if PersistenceController.shared.persistentContainer.canUpdateRecord(forManagedObjectWith: photo.objectID) {
+            MenuDivider()
+            Button(action: {
+                activeSheet = .taggingView(photo)
+            }) {
+                MenuButtonLabel(title: "Tag", systemImage: "tag")
+            }
+            Button(action: {
+                activeSheet = .ratingView(photo)
+            }) {
+                MenuButtonLabel(title: "Rate", systemImage: "star")
+            }
+        }
         /**
          Show the Delete button if the user is editing photos and has the permission to delete.
          */
         if PersistenceController.shared.persistentContainer.canDeleteRecord(forManagedObjectWith: photo.objectID) {
-            Divider()
-            Button("Delete", role: .destructive) {
+            MenuDivider()
+            
+            Button(role: .destructive, action: {
                 PersistenceController.shared.delete(photo: photo)
                 activeSheet = nil
+            }) {
+                MenuButtonLabel(title: "Delete", systemImage: "trash")
             }
+        }
+    }
+    
+    private func manageParticipation(photo: Photo) {
+        if let share = PersistenceController.shared.existingShare(photo: photo) {
+            activeSheet = .participantView(share)
+        } else {
+            activeSheet = .managingSharesView
         }
     }
 
     /**
-     Use UICloudSharingController to manage the share in iOS.
-     In watchOS, UICloudSharingController is unavailable, so create the share using Core Data API.
-     */
-    #if os(iOS)
-    private func createNewShare(photo: Photo) {
-         PersistenceController.shared.presentCloudSharingController(photo: photo)
-    }
-    
-    private func manageParticipation(photo: Photo) {
-        PersistenceController.shared.presentCloudSharingController(photo: photo)
-    }
-    
-    #elseif os(watchOS)
-    /**
-     Sharing a photo can take a while, so dispatch to a global queue so SwiftUI has a chance to show the progress view.
+     Sharing a photo can take a while in watchOS, so dispatch to a global queue so SwiftUI has a chance to show the progress view.
      @State variables are thread-safe, so there's no need to dispatch back the main queue.
      */
     private func createNewShare(photo: Photo) {
@@ -107,12 +137,6 @@ struct PhotoContextMenu: View {
             }
         }
     }
-    
-    private func manageParticipation(photo: Photo) {
-        nextSheet = .managingSharesView
-        activeSheet = nil
-    }
-    #endif
     
     /**
      Ignore the notification in the following cases:

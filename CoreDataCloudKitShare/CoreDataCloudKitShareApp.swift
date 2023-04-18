@@ -1,5 +1,5 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+See the LICENSE.txt file for this sample’s licensing information.
 
 Abstract:
 The SwiftUI app for iOS.
@@ -10,7 +10,8 @@ import CoreData
 
 @main
 struct CoreDataCloudKitShareApp: App {
-    @UIApplicationDelegateAdaptor var appDelegate: AppDelegate
+    @ApplicationDelegateAdaptor var appDelegate: AppDelegate
+
     private let persistentContainer = PersistenceController.shared.persistentContainer
 
     var body: some Scene {

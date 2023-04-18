@@ -1,14 +1,14 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+See the LICENSE.txt file for this sample’s licensing information.
 
 Abstract:
-The WatchKit extension delegate class.
+The watch app delegate class.
 */
 
 import WatchKit
 import CloudKit
 
-class ExtensionDelegate: NSObject, WKExtensionDelegate {
+class AppDelegate: NSObject, WKApplicationDelegate {
     /**
      To be able to accept a share, add a CKSharingSupported entry in the Info.plist file of the WatchKit app and set it to true.
      */

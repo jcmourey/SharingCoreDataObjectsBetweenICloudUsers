@@ -1,5 +1,5 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+See the LICENSE.txt file for this sample’s licensing information.
 
 Abstract:
 The SwiftUI app for watchOS.
@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct CoreDataCloudKitShareApp: App {
-    @WKExtensionDelegateAdaptor var delegateOfExtension: ExtensionDelegate
+    @WKApplicationDelegateAdaptor var appDelegate: AppDelegate
 
     let persistenceController = PersistenceController.shared
 

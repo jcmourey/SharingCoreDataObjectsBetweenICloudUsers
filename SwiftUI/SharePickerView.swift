@@ -1,5 +1,5 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+See the LICENSE.txt file for this sample’s licensing information.
 
 Abstract:
 A SwiftUI view that picks an existing share.
@@ -11,42 +11,42 @@ import CloudKit
 
 struct SharePickerView<ActionView: View>: View {
     @Binding private var activeSheet: ActiveSheet?
-    @Binding private var selection: String?
-    
-    private let actionView: ActionView
+    private let actionView: (String) -> ActionView
     @State private var shareTitles = PersistenceController.shared.shareTitles()
 
-    init(activeSheet: Binding<ActiveSheet?>, selection: Binding<String?>, @ViewBuilder actionView: () -> ActionView) {
+    init(activeSheet: Binding<ActiveSheet?>, @ViewBuilder actionView: @escaping (String) -> ActionView) {
         _activeSheet = activeSheet
-        _selection = selection
-        self.actionView = actionView()
+        self.actionView = actionView
     }
 
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                if shareTitles.isEmpty {
-                   Text("No share exists. Please create a new share for a photo, then try again.").padding()
+                   Text("No share exists. Please create a new share for a photo, then try again.")
+                       .padding()
                    Spacer()
                } else {
-                   Form {
-                       Section(header: Text("Pick a share")) {
-                           ShareListView(selection: $selection, shareTitles: $shareTitles)
-                       }
-                       Section {
-                           actionView
+                   List(shareTitles, id: \.self) { shareTitle in
+                       HStack {
+                           Text(shareTitle)
+                           Spacer()
+                           actionView(shareTitle)
                        }
                    }
                }
             }
             .toolbar {
-                ToolbarItem(placement: .automatic) {
-                    Button("Dismiss") { activeSheet = nil }
+                ToolbarItem(placement: .dismiss) {
+                    Button("Dismiss") {
+                        activeSheet = nil
+                    }
                 }
             }
-            .listStyle(.plain)
+            .listStyle(.clearRowShape)
             .navigationTitle("Shares")
         }
+        .frame(idealWidth: Layout.sheetIdealWidth, idealHeight: Layout.sheetIdealHeight)
         .onReceive(NotificationCenter.default.storeDidChangePublisher) { notification in
             processStoreChangeNotification(notification)
         }
@@ -68,27 +68,4 @@ struct SharePickerView<ActionView: View>: View {
         }
         shareTitles = PersistenceController.shared.shareTitles()
     }
-
 }
-
-private struct ShareListView: View {
-    @Binding var selection: String?
-    @Binding var shareTitles: [String]
-
-    var body: some View {
-        List(shareTitles, id: \.self) { shareTitle in
-            HStack {
-                Text(shareTitle)
-                Spacer()
-                if selection == shareTitle {
-                    Image(systemName: "checkmark")
-                }
-            }
-            .contentShape(Rectangle())
-            .onTapGesture {
-                selection = (selection == shareTitle) ? nil : shareTitle
-            }
-        }
-    }
-}
-

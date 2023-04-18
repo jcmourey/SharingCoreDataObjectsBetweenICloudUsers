@@ -1,5 +1,5 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+See the LICENSE.txt file for this sample’s licensing information.
 
 Abstract:
 A SwiftUI view that adds a photo to an existing share.
@@ -12,15 +12,20 @@ import CloudKit
 struct AddToExistingShareView: View {
     @Binding var activeSheet: ActiveSheet?
     var photo: Photo
-    
     @State private var toggleProgress: Bool = false
-    @State private var selection: String?
 
+    /**
+     The sample app doesn’t allow adding a photo existing in the private persistent store to a share from the participant side.
+     Real-world apps that need to do so can create a new object, relate it to a shared object, and save it, like what the sample
+     app does when adding a new tag for a shared photo.
+     */
     var body: some View {
         ZStack {
-            SharePickerView(activeSheet: $activeSheet, selection: $selection) {
-                Button("Add") { sharePhoto(photo, shareTitle: selection) }
-                .disabled(selection == nil)
+            SharePickerView(activeSheet: $activeSheet) { shareTitle in
+                IconOnlyButton("Add", systemImage: "square.grid.3x1.folder.badge.plus") {
+                    sharePhoto(photo, shareTitle: shareTitle)
+                }
+                .disabled(PersistenceController.shared.isParticipatingShare(with: shareTitle))
             }
             if toggleProgress {
                 ProgressView()

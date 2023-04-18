@@ -1,5 +1,5 @@
 /*
-See LICENSE folder for this sample’s licensing information.
+See the LICENSE.txt file for this sample’s licensing information.
 
 Abstract:
 Extensions that wrap the related methods for managing tags.
@@ -14,8 +14,7 @@ import CloudKit
 extension PersistenceController {
     func numberOfTags(with tagName: String) -> Int {
         let fetchRequest: NSFetchRequest<Tag> = Tag.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "\(Tag.Schema.name.rawValue) == %@", tagName)
-        
+        fetchRequest.predicate = Tag.predicateExcludingDeduplicatedTags(name: tagName)
         let number = try? persistentContainer.viewContext.count(for: fetchRequest)
         return number ?? 0
     }
@@ -26,6 +25,7 @@ extension PersistenceController {
                 let tag = Tag(context: context)
                 tag.name = name
                 tag.uuid = UUID()
+                tag.deduplicatedDate = nil
                 tag.addToPhotos(photo)
                 context.save(with: .addTag)
             }
@@ -33,6 +33,17 @@ extension PersistenceController {
     }
     
     func deleteTag(_ tag: Tag) {
+        /**
+         Remove the deduplicated tags using a background context.
+         */
+        if let tagZoneID = persistentContainer.recordID(for: tag.objectID)?.zoneID,
+           let tagName = tag.name {
+            let taskContext = persistentContainer.newTaskContext()
+            taskContext.perform {
+                self.removeDeduplicatedTags(tagName: tagName, tagZoneID: tagZoneID, performingContext: taskContext)
+                taskContext.save(with: .removeDeduplicatedTags)
+            }
+        }
         if let context = tag.managedObjectContext {
             context.performAndWait {
                 context.delete(tag)
@@ -44,7 +55,7 @@ extension PersistenceController {
     func toggleTagging(photo: Photo, tag: Tag) {
         if let context = photo.managedObjectContext {
             context.performAndWait {
-                if let photoTags = photo.tags, photoTags.contains(tag) {
+                if let photoTags = photo.tagsNotDeduplicated, photoTags.contains(tag) {
                     photo.removeFromTags(tag)
                 } else {
                     photo.addToTags(tag)
@@ -54,9 +65,12 @@ extension PersistenceController {
         }
     }
     /**
-     Return the tags that the app can use to tag the specified photo (or the tags that are in the same CloudKit zone as the photo).
+     Return the tags that the app can use to tag the specified photo (or the tags that are in the same CloudKit zone).
      */
     func filterTags(from tags: [Tag], forTagging photo: Photo) -> [Tag] {
+        guard !tags.isEmpty else {
+            return []
+        }
         guard let context = photo.managedObjectContext else {
             print("\(#function): Tagging a photo that isn't in a context is unsupported.")
             return []
@@ -70,13 +84,14 @@ extension PersistenceController {
         }
         /**
          Gather the object IDs of the tags that are valid for tagging the photo.
-         - Tags that are already in photo.tags are valid.
+         - Tags that are already in the tags of the photo are valid.
          - Tags that have the same share as photoShare are valid.
          */
         var filteredTags = [Tag]()
         context.performAndWait {
+            let photoTagNotDeduplicated = photo.tagsNotDeduplicated
             for tag in tags {
-                if let photoTags = photo.tags, photoTags.contains(tag) {
+                if let photoTags = photoTagNotDeduplicated, photoTags.contains(tag) {
                     filteredTags.append(tag)
                     continue
                 }
@@ -101,6 +116,24 @@ extension PersistenceController {
         let result = try? persistentContainer.fetchShares(matching: objectIDs)
         return result?.values.first
     }
+    
+    /**
+     Remove the deduplicated tags with the tag name and CloudKit record zone ID.
+     */
+    private func removeDeduplicatedTags(tagName: String, tagZoneID: CKRecordZone.ID, performingContext: NSManagedObjectContext) {
+        let fetchRequest: NSFetchRequest<Tag> = Tag.fetchRequest()
+        let format = "(\(Tag.Schema.deduplicatedDate.rawValue) != nil) AND (\(Tag.Schema.name.rawValue) == %@)"
+        fetchRequest.predicate = NSPredicate(format: format, tagName)
+        guard var duplicatedTags = try? performingContext.fetch(fetchRequest) else {
+            return
+        }
+        duplicatedTags = duplicatedTags.filter {
+            self.persistentContainer.recordID(for: $0.objectID)?.zoneID == tagZoneID
+        }
+        duplicatedTags.forEach { tag in
+            performingContext.delete(tag)
+        }
+    }
 }
 
 // MARK: - An extension for Tag.
@@ -110,12 +143,25 @@ extension Tag {
      The name of relevant tag attributes.
      */
     enum Schema: String {
-        case name, uuid
+        case name, uuid, deduplicatedDate
     }
     
+    class func predicateExcludingDeduplicatedTags(name: String, useContains: Bool = false) -> NSPredicate {
+        let baseFormat = "\(Tag.Schema.deduplicatedDate.rawValue) == nil"
+        if name.isEmpty {
+            return NSPredicate(format: baseFormat)
+        }
+        var nameFormat = "\(Tag.Schema.name.rawValue) == %@"
+        if useContains {
+            nameFormat = "\(Tag.Schema.name.rawValue) CONTAINS[cd] %@"
+        }
+        let fullFormat = "(\(nameFormat)) AND (\(baseFormat))"
+        return NSPredicate(format: fullFormat, argumentArray: [name])
+    }
+
     class func tagIfExists(with name: String, context: NSManagedObjectContext) -> Tag? {
         let fetchRequest: NSFetchRequest<Tag> = Tag.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "\(Schema.name.rawValue) == %@", name)
+        fetchRequest.predicate = predicateExcludingDeduplicatedTags(name: name)
         let tags = try? context.fetch(fetchRequest)
         return tags?.first
     }
