@@ -17,11 +17,7 @@ import UIKit
 // MARK: - Convenient methods for managing photos.
 //
 extension PersistenceController {
-    func addPhoto(image: UIImage) {
-        guard let imageData = image.jpegData(compressionQuality: 1) else {
-            print("\(#function): Failed to retrieve JPG data and URL of the picked image.")
-            return
-        }
+    func addPhoto(imageData: Data) {
         guard let thumbnailData = thumbnail(with: imageData)?.jpegData(compressionQuality: 1) else {
             print("\(#function): Failed to create a thumbnail for the picked image.")
             return

@@ -33,43 +33,21 @@ struct PhotoSelectorView: View {
 extension PhotoSelectorView {
     @discardableResult
     private func loadTransferable(from imageSelection: PhotosPickerItem) -> Progress {
-        return imageSelection.loadTransferable(type: UIImage.self) { result in
+        return imageSelection.loadTransferable(type: Data.self) { result in
             DispatchQueue.main.async {
                 guard imageSelection == self.selectedItem else {
                     print("Failed to get the picked photo.")
                     return
                 }
                 switch result {
-                case .success(let image?):
-                    PersistenceController.shared.addPhoto(image: image)
+                case .success(let imageData?):
+                    PersistenceController.shared.addPhoto(imageData: imageData)
                 case .success(nil):
                     print("No photo is picked.")
                 case .failure(let error):
                     print("Failed to load the picked photo: \(error)")
                 }
             }
-        }
-    }
-}
-
-extension UIImage: Transferable {
-    public static var transferRepresentation: some TransferRepresentation {
-        DataRepresentation(importedContentType: .image) { data in
-            guard let image = UIImage(data: data) else {
-                throw PhotoSelectorError.importFailed
-            }
-            return image
-        }
-    }
-}
-
-private enum PhotoSelectorError: Error, LocalizedError {
-    case importFailed
-    
-    var errorDescription: String? {
-        switch self {
-        case .importFailed:
-            return NSLocalizedString("Failed to import the picked photo.", comment: "")
         }
     }
 }
