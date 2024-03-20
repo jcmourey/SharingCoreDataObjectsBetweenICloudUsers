@@ -118,7 +118,13 @@ extension PersistenceController {
                     photo.addToTags(tagToReserve)
                 }
             }
-            tag.deduplicatedDate = .now
+            /**
+             Mark the tag as deduplicated if the tag isn't deduplicated by setting deduplicatedDate to .now.
+             Don't change the deduplicated date of a tag that's already deduplicated because that triggers an infinite synchronization loop.
+             */
+            if tag.deduplicatedDate == nil {
+                tag.deduplicatedDate = .now
+            }
         }
     }
 }

@@ -308,7 +308,7 @@
 				B24732F33201E3732F237ECB /* LICENSE.txt */,
 			);
 			name = LICENSE;
-			path = LICENSE;
+			path = "";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
