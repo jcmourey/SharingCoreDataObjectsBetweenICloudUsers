@@ -15,7 +15,7 @@ import CloudKit
 extension PersistenceController {
     func presentCloudSharingController(share: CKShare) {
         let sharingController = UICloudSharingController(share: share, container: cloudKitContainer)
-        sharingController.delegate = self
+        sharingController.delegate = cloudSharingControllerDelegate
         /**
          Setting the presentation style to .formSheet so there's no need to specify sourceView, sourceItem, or sourceRect.
          */
@@ -48,13 +48,9 @@ extension PersistenceController {
  cloudSharingControllerDidStopSharing(:) here to call persistUpdatedShare(:in:completion:)  and purgeObjectsAndRecordsInZone(with:in:completion:),
  respectively.
  */
-extension PersistenceController: UICloudSharingControllerDelegate {
+class UI_CloudSharingControllerDelegate: NSObject, UICloudSharingControllerDelegate {
     func itemTitle(for csc: UICloudSharingController) -> String? {
         return "A cool photo!"
-    }
-    func cloudSharingControllerDidSaveShare(_ csc: UICloudSharingController) {
-    }
-    func cloudSharingControllerDidStopSharing(_ csc: UICloudSharingController) {
     }
     func cloudSharingController(_ csc: UICloudSharingController, failedToSaveShareWithError error: Error) {
         print("\(#function): Failed to save a share: \(error)")

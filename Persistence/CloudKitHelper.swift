@@ -15,6 +15,12 @@ extension CKShare.ParticipantAcceptanceStatus {
     }
 }
 
+extension CKDatabase.Scope {
+    var stringValue: String {
+        return ["Unknown", "Public", "Private", "Shared"][rawValue]
+    }
+}
+
 extension CKShare {
     var title: String {
         guard let date = creationDate else {

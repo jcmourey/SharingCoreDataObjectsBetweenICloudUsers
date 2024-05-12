@@ -18,7 +18,7 @@ extension PersistenceController {
             print("\(#function): Failed to create an NSSharingService instance for cloud sharing.")
             return
         }
-        sharingService.delegate = self
+        sharingService.delegate = cloudSharingControllerDelegate
         
         let itemProvider = NSItemProvider()
         itemProvider.registerCloudKitShare(share, container: cloudKitContainer)
@@ -42,7 +42,7 @@ extension PersistenceController {
  
  There’s no need to implement options(for:share:) because this sample only uses NSSharingService for managing an existing share.
  */
-extension PersistenceController: NSCloudSharingServiceDelegate {
+class NS_CloudSharingServiceDelegate: NSObject, NSCloudSharingServiceDelegate {
     func sharingService(_ sharingService: NSSharingService, willShareItems items: [Any]) {
     }
     func sharingService(_ sharingService: NSSharingService, didSave share: CKShare) {

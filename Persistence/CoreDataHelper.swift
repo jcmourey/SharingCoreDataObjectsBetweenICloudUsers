@@ -87,5 +87,47 @@ extension NSPersistentCloudKitContainer {
         }
         return results
     }
+   
+    enum Error: Swift.Error {
+        case noCloudKitContainerOptions(String)
+        case noLoadedStoreDescriptionURL(String)
+        case noPersistentStore(URL)
+        case noDatabaseScope(String)
+    }
+    
+    /**
+     Async version of loadPersistentStores
+     */
+    func loadPersistentStores() async throws -> [CKDatabase.Scope: NSPersistentStore] {
+        try await withCheckedThrowingContinuation { continuation in
+            var loadedStores = [CKDatabase.Scope: NSPersistentStore]()
+            var errors = [any Swift.Error]()
+            
+            loadPersistentStores { loadedStoreDescription, error in
+                if let error {
+                    errors.append(error)
+                } else {
+                    guard let url = loadedStoreDescription.url else {
+                        errors.append(Error.noLoadedStoreDescriptionURL(loadedStoreDescription.type))
+                        return
+                    }
+                    guard let persistentStore = self.persistentStoreCoordinator.persistentStore(for: url) else {
+                        errors.append(Error.noPersistentStore(url))
+                        return
+                    }
+                    guard let databaseScope = loadedStoreDescription.cloudKitContainerOptions?.databaseScope else {
+                        errors.append(Error.noDatabaseScope(loadedStoreDescription.type))
+                        return
+                    }
+                    loadedStores[databaseScope] = persistentStore
+                }
+            }
+            
+            if let error = errors.first {
+                continuation.resume(throwing: error)
+            } else {
+                continuation.resume(returning: loadedStores)
+            }
+        }
+    }
 }
-
