@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "407D7CE727024EBD00D2BA90"
-               BuildableName = "JourneyJarShare.app"
-               BlueprintName = "JourneyJarShare"
+               BuildableName = "JourneyJar.app"
+               BlueprintName = "JourneyJar"
                ReferencedContainer = "container:JourneyJar.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -36,8 +36,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DC2B9F672BEE2142000F059D"
-               BuildableName = "JourneyJarShareTests.xctest"
-               BlueprintName = "JourneyJarShareTests"
+               BuildableName = "JourneyJarTests.xctest"
+               BlueprintName = "JourneyJarTests"
                ReferencedContainer = "container:JourneyJar.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -47,8 +47,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DC2B9F742BEE218B000F059D"
-               BuildableName = "JourneyJarShareUITests.xctest"
-               BlueprintName = "JourneyJarShareUITests"
+               BuildableName = "JourneyJarUITests.xctest"
+               BlueprintName = "JourneyJarUITests"
                ReferencedContainer = "container:JourneyJar.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -69,8 +69,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "407D7CE727024EBD00D2BA90"
-            BuildableName = "JourneyJarShare.app"
-            BlueprintName = "JourneyJarShare"
+            BuildableName = "JourneyJar.app"
+            BlueprintName = "JourneyJar"
             ReferencedContainer = "container:JourneyJar.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -86,8 +86,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "407D7CE727024EBD00D2BA90"
-            BuildableName = "JourneyJarShare.app"
-            BlueprintName = "JourneyJarShare"
+            BuildableName = "JourneyJar.app"
+            BlueprintName = "JourneyJar"
             ReferencedContainer = "container:JourneyJar.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

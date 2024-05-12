@@ -39,7 +39,7 @@
 		407A0CED2707D0CD00F481C5 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 407D7D092702502400D2BA90 /* CloudKit.framework */; };
 		407A0CEF2707D0CD00F481C5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 407D7CF227024EBE00D2BA90 /* Preview Assets.xcassets */; };
 		407A0CF02707D0CD00F481C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 407D7CEF27024EBE00D2BA90 /* Assets.xcassets */; };
-		407D7CEC27024EBD00D2BA90 /* WeJourneyShareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7CEB27024EBD00D2BA90 /* WeJourneyShareApp.swift */; };
+		407D7CEC27024EBD00D2BA90 /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7CEB27024EBD00D2BA90 /* MainApp.swift */; };
 		407D7CEE27024EBD00D2BA90 /* PhotoGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7CED27024EBD00D2BA90 /* PhotoGridView.swift */; };
 		407D7CF027024EBE00D2BA90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 407D7CEF27024EBE00D2BA90 /* Assets.xcassets */; };
 		407D7CF327024EBE00D2BA90 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 407D7CF227024EBE00D2BA90 /* Preview Assets.xcassets */; };
@@ -47,8 +47,8 @@
 		407D7D0427024F5D00D2BA90 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7D0027024F5D00D2BA90 /* PersistenceController.swift */; };
 		407D7D0A2702502400D2BA90 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 407D7D092702502400D2BA90 /* CloudKit.framework */; };
 		407D7D102702556700D2BA90 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 407D7D0F2702556700D2BA90 /* Assets.xcassets */; };
-		407D7D1B2702556800D2BA90 /* WeJourneyShareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7D1A2702556800D2BA90 /* WeJourneyShareApp.swift */; };
-		407D7D2D2702556900D2BA90 /* JourneyJarShareOnWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 407D7D0D2702556600D2BA90 /* JourneyJarShareOnWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		407D7D1B2702556800D2BA90 /* WatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7D1A2702556800D2BA90 /* WatchApp.swift */; };
+		407D7D2D2702556900D2BA90 /* JourneyJar.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 407D7D0D2702556600D2BA90 /* JourneyJar.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		407D7D39270262EF00D2BA90 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 407D7D38270262EF00D2BA90 /* CloudKit.framework */; };
 		407D7D5F2703878000D2BA90 /* PersistenceController+Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7D5E2703878000D2BA90 /* PersistenceController+Photo.swift */; };
 		407D7D612703880E00D2BA90 /* PersistenceController+Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7D602703880E00D2BA90 /* PersistenceController+Tag.swift */; };
@@ -67,7 +67,7 @@
 		40B62027273AFDC600B27D3D /* PersistenceController+Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7D5E2703878000D2BA90 /* PersistenceController+Photo.swift */; };
 		40BACC0B2740646E00F12CBD /* PersistenceController+SharingUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4074428A270FB2B5009CABC7 /* PersistenceController+SharingUtilities.swift */; };
 		40BBEB0129AC1DDC00257BB2 /* SwiftUIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403177D72742F4F70048F2DC /* SwiftUIHelper.swift */; };
-		40BF6728273B0B7400ED9D2D /* WeJourneyShareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7CEB27024EBD00D2BA90 /* WeJourneyShareApp.swift */; };
+		40BF6728273B0B7400ED9D2D /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 407D7CEB27024EBD00D2BA90 /* MainApp.swift */; };
 		40BF672E273B17A500ED9D2D /* PersistenceController+History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BF672C273B17A200ED9D2D /* PersistenceController+History.swift */; };
 		40BF672F273B17A900ED9D2D /* PersistenceController+History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BF672C273B17A200ED9D2D /* PersistenceController+History.swift */; };
 		40C6211E2755AFB500015301 /* SharePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C6211D2755AFB500015301 /* SharePickerView.swift */; };
@@ -117,13 +117,9 @@
 		DC2B9F562BEE20C5000F059D /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B9F532BEE20C5000F059D /* PreviewData.swift */; };
 		DC2B9F572BEE20C5000F059D /* TheTVDBSearchResult.json in Resources */ = {isa = PBXBuildFile; fileRef = DC2B9F542BEE20C5000F059D /* TheTVDBSearchResult.json */; };
 		DC2B9F582BEE20C5000F059D /* TheTVDBSearchResult.json in Resources */ = {isa = PBXBuildFile; fileRef = DC2B9F542BEE20C5000F059D /* TheTVDBSearchResult.json */; };
-		DC2B9F6B2BEE2142000F059D /* WeJourneyShareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B9F6A2BEE2142000F059D /* WeJourneyShareTests.swift */; };
-		DC2B9F782BEE218B000F059D /* WeJourneyShareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B9F772BEE218B000F059D /* WeJourneyShareUITests.swift */; };
-		DC2B9F7A2BEE218B000F059D /* WeJourneyShareUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B9F792BEE218B000F059D /* WeJourneyShareUITestsLaunchTests.swift */; };
-		DC2B9F822BEE221C000F059D /* WeJourney.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC2B9F802BEE221C000F059D /* WeJourney.xcdatamodeld */; };
-		DC2B9F832BEE221C000F059D /* WeJourney.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC2B9F802BEE221C000F059D /* WeJourney.xcdatamodeld */; };
-		DC2B9F842BEE221C000F059D /* WeJourney.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC2B9F802BEE221C000F059D /* WeJourney.xcdatamodeld */; };
-		DC2B9F852BEE221C000F059D /* WeJourney.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC2B9F802BEE221C000F059D /* WeJourney.xcdatamodeld */; };
+		DC2B9F6B2BEE2142000F059D /* JourneyJarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B9F6A2BEE2142000F059D /* JourneyJarTests.swift */; };
+		DC2B9F782BEE218B000F059D /* JourneyJarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B9F772BEE218B000F059D /* JourneyJarUITests.swift */; };
+		DC2B9F7A2BEE218B000F059D /* JourneyJarUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B9F792BEE218B000F059D /* JourneyJarUITestsLaunchTests.swift */; };
 		DC2B9F872BEE3F02000F059D /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B9F862BEE3F02000F059D /* URL.swift */; };
 		DC2B9F882BEE3F02000F059D /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B9F862BEE3F02000F059D /* URL.swift */; };
 		DC2B9F892BEE3F02000F059D /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B9F862BEE3F02000F059D /* URL.swift */; };
@@ -132,6 +128,9 @@
 		DC2B9F902BEFC7C7000F059D /* Obsolete.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B9F8E2BEFC7C7000F059D /* Obsolete.swift */; };
 		DC2B9F912BEFC7C7000F059D /* Obsolete.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B9F8E2BEFC7C7000F059D /* Obsolete.swift */; };
 		DC2B9F922BEFC7C7000F059D /* Obsolete.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B9F8E2BEFC7C7000F059D /* Obsolete.swift */; };
+		DC478C942BF0EF60001B603A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC478C922BF0EF60001B603A /* Model.xcdatamodeld */; };
+		DC478C952BF0EF60001B603A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC478C922BF0EF60001B603A /* Model.xcdatamodeld */; };
+		DC478C962BF0EF60001B603A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DC478C922BF0EF60001B603A /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -175,7 +174,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				407D7D2D2702556900D2BA90 /* JourneyJarShareOnWatch.app in Embed Watch Content */,
+				407D7D2D2702556900D2BA90 /* JourneyJar.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -198,21 +197,21 @@
 		40744288270FAFB3009CABC7 /* ParticipantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantView.swift; sourceTree = "<group>"; };
 		4074428A270FB2B5009CABC7 /* PersistenceController+SharingUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistenceController+SharingUtilities.swift"; sourceTree = "<group>"; };
 		407A0CF62707D0CD00F481C5 /* InitializeCloudKitSchema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InitializeCloudKitSchema.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		407D7CE827024EBD00D2BA90 /* JourneyJarShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JourneyJarShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		407D7CEB27024EBD00D2BA90 /* WeJourneyShareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeJourneyShareApp.swift; sourceTree = "<group>"; };
+		407D7CE827024EBD00D2BA90 /* JourneyJar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JourneyJar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		407D7CEB27024EBD00D2BA90 /* MainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApp.swift; sourceTree = "<group>"; };
 		407D7CED27024EBD00D2BA90 /* PhotoGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGridView.swift; sourceTree = "<group>"; };
 		407D7CEF27024EBE00D2BA90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		407D7CF227024EBE00D2BA90 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		407D7CF727024EBE00D2BA90 /* CoreDataCloudKitShare.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataCloudKitShare.xcdatamodel; sourceTree = "<group>"; };
 		407D7CFE27024F4100D2BA90 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		407D7D0027024F5D00D2BA90 /* PersistenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
-		407D7D072702502200D2BA90 /* WeJourneyShare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WeJourneyShare.entitlements; sourceTree = "<group>"; };
+		407D7D072702502200D2BA90 /* Main.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Main.entitlements; sourceTree = "<group>"; };
 		407D7D092702502400D2BA90 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
-		407D7D0D2702556600D2BA90 /* JourneyJarShareOnWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JourneyJarShareOnWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		407D7D0D2702556600D2BA90 /* JourneyJar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JourneyJar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		407D7D0F2702556700D2BA90 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		407D7D1A2702556800D2BA90 /* WeJourneyShareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeJourneyShareApp.swift; sourceTree = "<group>"; };
+		407D7D1A2702556800D2BA90 /* WatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchApp.swift; sourceTree = "<group>"; };
 		407D7D36270262C500D2BA90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		407D7D37270262ED00D2BA90 /* WeJourneyShareOnWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WeJourneyShareOnWatch.entitlements; sourceTree = "<group>"; };
+		407D7D37270262ED00D2BA90 /* Watch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Watch.entitlements; sourceTree = "<group>"; };
 		407D7D38270262EF00D2BA90 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		407D7D5E2703878000D2BA90 /* PersistenceController+Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistenceController+Photo.swift"; sourceTree = "<group>"; };
 		407D7D602703880E00D2BA90 /* PersistenceController+Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersistenceController+Tag.swift"; sourceTree = "<group>"; };
@@ -249,14 +248,14 @@
 		DC2B9F492BEE209D000F059D /* PredictingTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PredictingTextField.swift; sourceTree = "<group>"; };
 		DC2B9F532BEE20C5000F059D /* PreviewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		DC2B9F542BEE20C5000F059D /* TheTVDBSearchResult.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TheTVDBSearchResult.json; sourceTree = "<group>"; };
-		DC2B9F682BEE2142000F059D /* JourneyJarShareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JourneyJarShareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC2B9F6A2BEE2142000F059D /* WeJourneyShareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeJourneyShareTests.swift; sourceTree = "<group>"; };
-		DC2B9F752BEE218B000F059D /* JourneyJarShareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JourneyJarShareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC2B9F772BEE218B000F059D /* WeJourneyShareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeJourneyShareUITests.swift; sourceTree = "<group>"; };
-		DC2B9F792BEE218B000F059D /* WeJourneyShareUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeJourneyShareUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		DC2B9F812BEE221C000F059D /* WeJourney.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WeJourney.xcdatamodel; sourceTree = "<group>"; };
+		DC2B9F682BEE2142000F059D /* JourneyJarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JourneyJarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC2B9F6A2BEE2142000F059D /* JourneyJarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyJarTests.swift; sourceTree = "<group>"; };
+		DC2B9F752BEE218B000F059D /* JourneyJarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JourneyJarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC2B9F772BEE218B000F059D /* JourneyJarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyJarUITests.swift; sourceTree = "<group>"; };
+		DC2B9F792BEE218B000F059D /* JourneyJarUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyJarUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		DC2B9F862BEE3F02000F059D /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		DC2B9F8E2BEFC7C7000F059D /* Obsolete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Obsolete.swift; sourceTree = "<group>"; };
+		DC478C932BF0EF60001B603A /* WeJourney.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WeJourney.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -340,10 +339,10 @@
 				DC2B9F462BEE209C000F059D /* Swift Helpers */,
 				DC2B9F4A2BEE209D000F059D /* SwiftUI Helpers */,
 				403177D52742DF030048F2DC /* Views */,
-				407D7CEA27024EBD00D2BA90 /* JourneyJar */,
-				407D7D0E2702556600D2BA90 /* JourneyJarOnWatch */,
-				DC2B9F692BEE2142000F059D /* WeJourneyShareTests */,
-				DC2B9F762BEE218B000F059D /* WeJourneyShareUITests */,
+				407D7CEA27024EBD00D2BA90 /* MainApp */,
+				407D7D0E2702556600D2BA90 /* WatchApp */,
+				DC2B9F692BEE2142000F059D /* JourneyJarTests */,
+				DC2B9F762BEE218B000F059D /* JourneyJarUITests */,
 				407D7CE927024EBD00D2BA90 /* Products */,
 				407D7D082702502400D2BA90 /* Frameworks */,
 				2688BA1F747563B6A38275FD /* Configuration */,
@@ -354,29 +353,28 @@
 		407D7CE927024EBD00D2BA90 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				407D7CE827024EBD00D2BA90 /* JourneyJarShare.app */,
-				407D7D0D2702556600D2BA90 /* JourneyJarShareOnWatch.app */,
+				407D7CE827024EBD00D2BA90 /* JourneyJar.app */,
+				407D7D0D2702556600D2BA90 /* JourneyJar.app */,
 				407A0CF62707D0CD00F481C5 /* InitializeCloudKitSchema.app */,
-				DC2B9F682BEE2142000F059D /* JourneyJarShareTests.xctest */,
-				DC2B9F752BEE218B000F059D /* JourneyJarShareUITests.xctest */,
+				DC2B9F682BEE2142000F059D /* JourneyJarTests.xctest */,
+				DC2B9F752BEE218B000F059D /* JourneyJarUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		407D7CEA27024EBD00D2BA90 /* JourneyJar */ = {
+		407D7CEA27024EBD00D2BA90 /* MainApp */ = {
 			isa = PBXGroup;
 			children = (
-				407D7D072702502200D2BA90 /* WeJourneyShare.entitlements */,
-				407D7CEB27024EBD00D2BA90 /* WeJourneyShareApp.swift */,
+				407D7D072702502200D2BA90 /* Main.entitlements */,
+				407D7CEB27024EBD00D2BA90 /* MainApp.swift */,
 				407D7D6C2704335A00D2BA90 /* AppDelegate_iOS.swift */,
 				4027C7EF29AC195E00D62EE9 /* AppDelegate_macOS.swift */,
 				407D7D6A2704334400D2BA90 /* SceneDelegate.swift */,
 				407D7D36270262C500D2BA90 /* Info.plist */,
 				407D7CEF27024EBE00D2BA90 /* Assets.xcassets */,
-				DC2B9F802BEE221C000F059D /* WeJourney.xcdatamodeld */,
 				407D7CF127024EBE00D2BA90 /* Preview Content */,
 			);
-			path = JourneyJar;
+			path = MainApp;
 			sourceTree = "<group>";
 		};
 		407D7CF127024EBE00D2BA90 /* Preview Content */ = {
@@ -417,16 +415,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		407D7D0E2702556600D2BA90 /* JourneyJarOnWatch */ = {
+		407D7D0E2702556600D2BA90 /* WatchApp */ = {
 			isa = PBXGroup;
 			children = (
-				407D7D37270262ED00D2BA90 /* WeJourneyShareOnWatch.entitlements */,
-				407D7D1A2702556800D2BA90 /* WeJourneyShareApp.swift */,
+				407D7D37270262ED00D2BA90 /* Watch.entitlements */,
+				407D7D1A2702556800D2BA90 /* WatchApp.swift */,
 				401C06EC276E9D790024D92C /* AppDelegate.swift */,
 				406193C22755686C006EC5D8 /* Info.plist */,
 				407D7D0F2702556700D2BA90 /* Assets.xcassets */,
 			);
-			path = JourneyJarOnWatch;
+			path = WatchApp;
 			sourceTree = "<group>";
 		};
 		8909BB0CE269AA3B6CDD6200 /* LICENSE */ = {
@@ -493,6 +491,7 @@
 		DC2B9F242BEE2069000F059D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DC478C922BF0EF60001B603A /* Model.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -516,21 +515,21 @@
 			path = "SwiftUI Helpers";
 			sourceTree = "<group>";
 		};
-		DC2B9F692BEE2142000F059D /* WeJourneyShareTests */ = {
+		DC2B9F692BEE2142000F059D /* JourneyJarTests */ = {
 			isa = PBXGroup;
 			children = (
-				DC2B9F6A2BEE2142000F059D /* WeJourneyShareTests.swift */,
+				DC2B9F6A2BEE2142000F059D /* JourneyJarTests.swift */,
 			);
-			path = WeJourneyShareTests;
+			path = JourneyJarTests;
 			sourceTree = "<group>";
 		};
-		DC2B9F762BEE218B000F059D /* WeJourneyShareUITests */ = {
+		DC2B9F762BEE218B000F059D /* JourneyJarUITests */ = {
 			isa = PBXGroup;
 			children = (
-				DC2B9F772BEE218B000F059D /* WeJourneyShareUITests.swift */,
-				DC2B9F792BEE218B000F059D /* WeJourneyShareUITestsLaunchTests.swift */,
+				DC2B9F772BEE218B000F059D /* JourneyJarUITests.swift */,
+				DC2B9F792BEE218B000F059D /* JourneyJarUITestsLaunchTests.swift */,
 			);
-			path = WeJourneyShareUITests;
+			path = JourneyJarUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -554,9 +553,9 @@
 			productReference = 407A0CF62707D0CD00F481C5 /* InitializeCloudKitSchema.app */;
 			productType = "com.apple.product-type.application";
 		};
-		407D7CE727024EBD00D2BA90 /* JourneyJarShare */ = {
+		407D7CE727024EBD00D2BA90 /* JourneyJar */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 407D7CFB27024EBE00D2BA90 /* Build configuration list for PBXNativeTarget "JourneyJarShare" */;
+			buildConfigurationList = 407D7CFB27024EBE00D2BA90 /* Build configuration list for PBXNativeTarget "JourneyJar" */;
 			buildPhases = (
 				407D7CE427024EBD00D2BA90 /* Sources */,
 				407D7CE527024EBD00D2BA90 /* Frameworks */,
@@ -568,14 +567,14 @@
 			dependencies = (
 				407D7D2C2702556900D2BA90 /* PBXTargetDependency */,
 			);
-			name = JourneyJarShare;
+			name = JourneyJar;
 			productName = CoreDataCloudKitShare;
-			productReference = 407D7CE827024EBD00D2BA90 /* JourneyJarShare.app */;
+			productReference = 407D7CE827024EBD00D2BA90 /* JourneyJar.app */;
 			productType = "com.apple.product-type.application";
 		};
-		407D7D0C2702556600D2BA90 /* JourneyJarShareOnWatch */ = {
+		407D7D0C2702556600D2BA90 /* JourneyJarOnWatch */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 407D7D352702556900D2BA90 /* Build configuration list for PBXNativeTarget "JourneyJarShareOnWatch" */;
+			buildConfigurationList = 407D7D352702556900D2BA90 /* Build configuration list for PBXNativeTarget "JourneyJarOnWatch" */;
 			buildPhases = (
 				407D7D0B2702556600D2BA90 /* Resources */,
 				407D7D112702556800D2BA90 /* Sources */,
@@ -585,14 +584,14 @@
 			);
 			dependencies = (
 			);
-			name = JourneyJarShareOnWatch;
+			name = JourneyJarOnWatch;
 			productName = CoreDataCloudKitShareOnWatch;
-			productReference = 407D7D0D2702556600D2BA90 /* JourneyJarShareOnWatch.app */;
+			productReference = 407D7D0D2702556600D2BA90 /* JourneyJar.app */;
 			productType = "com.apple.product-type.application";
 		};
-		DC2B9F672BEE2142000F059D /* JourneyJarShareTests */ = {
+		DC2B9F672BEE2142000F059D /* JourneyJarTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DC2B9F6E2BEE2143000F059D /* Build configuration list for PBXNativeTarget "JourneyJarShareTests" */;
+			buildConfigurationList = DC2B9F6E2BEE2143000F059D /* Build configuration list for PBXNativeTarget "JourneyJarTests" */;
 			buildPhases = (
 				DC2B9F642BEE2142000F059D /* Sources */,
 				DC2B9F652BEE2142000F059D /* Frameworks */,
@@ -603,14 +602,14 @@
 			dependencies = (
 				DC2B9F6D2BEE2142000F059D /* PBXTargetDependency */,
 			);
-			name = JourneyJarShareTests;
+			name = JourneyJarTests;
 			productName = WeJourneyShareTests;
-			productReference = DC2B9F682BEE2142000F059D /* JourneyJarShareTests.xctest */;
+			productReference = DC2B9F682BEE2142000F059D /* JourneyJarTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DC2B9F742BEE218B000F059D /* JourneyJarShareUITests */ = {
+		DC2B9F742BEE218B000F059D /* JourneyJarUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DC2B9F7D2BEE218B000F059D /* Build configuration list for PBXNativeTarget "JourneyJarShareUITests" */;
+			buildConfigurationList = DC2B9F7D2BEE218B000F059D /* Build configuration list for PBXNativeTarget "JourneyJarUITests" */;
 			buildPhases = (
 				DC2B9F712BEE218B000F059D /* Sources */,
 				DC2B9F722BEE218B000F059D /* Frameworks */,
@@ -621,9 +620,9 @@
 			dependencies = (
 				DC2B9F7C2BEE218B000F059D /* PBXTargetDependency */,
 			);
-			name = JourneyJarShareUITests;
+			name = JourneyJarUITests;
 			productName = WeJourneyShareUITests;
-			productReference = DC2B9F752BEE218B000F059D /* JourneyJarShareUITests.xctest */;
+			productReference = DC2B9F752BEE218B000F059D /* JourneyJarUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -667,11 +666,11 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				407D7CE727024EBD00D2BA90 /* JourneyJarShare */,
+				407D7CE727024EBD00D2BA90 /* JourneyJar */,
 				407A0CD92707D0CD00F481C5 /* InitializeCloudKitSchema */,
-				407D7D0C2702556600D2BA90 /* JourneyJarShareOnWatch */,
-				DC2B9F672BEE2142000F059D /* JourneyJarShareTests */,
-				DC2B9F742BEE218B000F059D /* JourneyJarShareUITests */,
+				407D7D0C2702556600D2BA90 /* JourneyJarOnWatch */,
+				DC2B9F672BEE2142000F059D /* JourneyJarTests */,
+				DC2B9F742BEE218B000F059D /* JourneyJarUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -728,11 +727,12 @@
 			files = (
 				4027C7F129AC1A3200D62EE9 /* AppDelegate_macOS.swift in Sources */,
 				407A0CDE2707D0CD00F481C5 /* SceneDelegate.swift in Sources */,
+				DC478C952BF0EF60001B603A /* Model.xcdatamodeld in Sources */,
 				407A0CE02707D0CD00F481C5 /* AppDelegate_iOS.swift in Sources */,
 				407A0CE12707D0CD00F481C5 /* PersistenceController.swift in Sources */,
 				40BBEB0129AC1DDC00257BB2 /* SwiftUIHelper.swift in Sources */,
 				407A0CEA2707D0CD00F481C5 /* CloudKitShare.xcdatamodeld in Sources */,
-				40BF6728273B0B7400ED9D2D /* WeJourneyShareApp.swift in Sources */,
+				40BF6728273B0B7400ED9D2D /* MainApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -774,7 +774,7 @@
 				407D7D612703880E00D2BA90 /* PersistenceController+Tag.swift in Sources */,
 				DC2B9F552BEE20C5000F059D /* PreviewData.swift in Sources */,
 				DC2B9F3B2BEE2069000F059D /* ContentView.swift in Sources */,
-				407D7CEC27024EBD00D2BA90 /* WeJourneyShareApp.swift in Sources */,
+				407D7CEC27024EBD00D2BA90 /* MainApp.swift in Sources */,
 				DC2B9F292BEE2069000F059D /* APIResource.swift in Sources */,
 				DC2B9F872BEE3F02000F059D /* URL.swift in Sources */,
 				DC2B9F3D2BEE2069000F059D /* TheTVDBSeriesListView.swift in Sources */,
@@ -785,11 +785,11 @@
 				40DD8C6729B50F1C00F33278 /* PhotoSelectorView.swift in Sources */,
 				407D7CF827024EBE00D2BA90 /* CloudKitShare.xcdatamodeld in Sources */,
 				407D7D632703A27000D2BA90 /* PhotoGridItemView.swift in Sources */,
+				DC478C942BF0EF60001B603A /* Model.xcdatamodeld in Sources */,
 				40C6211E2755AFB500015301 /* SharePickerView.swift in Sources */,
 				DC2B9F352BEE2069000F059D /* TripAdvisor.swift in Sources */,
 				DC2B9F272BEE2069000F059D /* APIRequest.swift in Sources */,
 				4026B868270A19390060F0F7 /* TaggingView.swift in Sources */,
-				DC2B9F822BEE221C000F059D /* WeJourney.xcdatamodeld in Sources */,
 				DC2B9F4B2BEE209D000F059D /* Optional+formatted.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -827,10 +827,11 @@
 				40B62022273AFD9300B27D3D /* PersistenceController+Deduplicate.swift in Sources */,
 				4058316B2767F0ED0044E86D /* FullImageView.swift in Sources */,
 				DC2B9F442BEE206A000F059D /* TVShowDetailsView.swift in Sources */,
+				DC478C962BF0EF60001B603A /* Model.xcdatamodeld in Sources */,
 				DC2B9F522BEE209D000F059D /* PredictingTextField.swift in Sources */,
 				40DD8C6829B50F1C00F33278 /* PhotoSelectorView.swift in Sources */,
 				DC2B9F382BEE2069000F059D /* TheTVDBAPIResource.swift in Sources */,
-				407D7D1B2702556800D2BA90 /* WeJourneyShareApp.swift in Sources */,
+				407D7D1B2702556800D2BA90 /* WatchApp.swift in Sources */,
 				40BACC0B2740646E00F12CBD /* PersistenceController+SharingUtilities.swift in Sources */,
 				DC2B9F362BEE2069000F059D /* TripAdvisor.swift in Sources */,
 				4040ECF229A98DD400E9217F /* CloudKitHelper.swift in Sources */,
@@ -840,7 +841,6 @@
 				403177D62742F4B40048F2DC /* PhotoGridItemView.swift in Sources */,
 				DC2B9F2E2BEE2069000F059D /* JSONDecoder+API.swift in Sources */,
 				DC2B9F3E2BEE2069000F059D /* TheTVDBSeriesListView.swift in Sources */,
-				DC2B9F832BEE221C000F059D /* WeJourney.xcdatamodeld in Sources */,
 				40B62023273AFD9700B27D3D /* PersistenceController+Rating.swift in Sources */,
 				403177D32742D5790048F2DC /* RatingView.swift in Sources */,
 				DC2B9F302BEE2069000F059D /* Loadable.swift in Sources */,
@@ -853,9 +853,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC2B9F892BEE3F02000F059D /* URL.swift in Sources */,
-				DC2B9F842BEE221C000F059D /* WeJourney.xcdatamodeld in Sources */,
 				DC2B9F912BEFC7C7000F059D /* Obsolete.swift in Sources */,
-				DC2B9F6B2BEE2142000F059D /* WeJourneyShareTests.swift in Sources */,
+				DC2B9F6B2BEE2142000F059D /* JourneyJarTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -863,9 +862,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC2B9F782BEE218B000F059D /* WeJourneyShareUITests.swift in Sources */,
-				DC2B9F7A2BEE218B000F059D /* WeJourneyShareUITestsLaunchTests.swift in Sources */,
-				DC2B9F852BEE221C000F059D /* WeJourney.xcdatamodeld in Sources */,
+				DC2B9F782BEE218B000F059D /* JourneyJarUITests.swift in Sources */,
+				DC2B9F7A2BEE218B000F059D /* JourneyJarUITestsLaunchTests.swift in Sources */,
 				DC2B9F922BEFC7C7000F059D /* Obsolete.swift in Sources */,
 				DC2B9F8A2BEE3F02000F059D /* URL.swift in Sources */,
 			);
@@ -876,17 +874,17 @@
 /* Begin PBXTargetDependency section */
 		407D7D2C2702556900D2BA90 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 407D7D0C2702556600D2BA90 /* JourneyJarShareOnWatch */;
+			target = 407D7D0C2702556600D2BA90 /* JourneyJarOnWatch */;
 			targetProxy = 407D7D2B2702556900D2BA90 /* PBXContainerItemProxy */;
 		};
 		DC2B9F6D2BEE2142000F059D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 407D7CE727024EBD00D2BA90 /* JourneyJarShare */;
+			target = 407D7CE727024EBD00D2BA90 /* JourneyJar */;
 			targetProxy = DC2B9F6C2BEE2142000F059D /* PBXContainerItemProxy */;
 		};
 		DC2B9F7C2BEE218B000F059D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 407D7CE727024EBD00D2BA90 /* JourneyJarShare */;
+			target = 407D7CE727024EBD00D2BA90 /* JourneyJar */;
 			targetProxy = DC2B9F7B2BEE218B000F059D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -901,7 +899,7 @@
 				CODE_SIGN_ENTITLEMENTS = WeJourneyShare/WeJourneyShare.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"WeJourneyShare/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"MainApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 87LWT8ZN7G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -939,7 +937,7 @@
 				CODE_SIGN_ENTITLEMENTS = WeJourneyShare/WeJourneyShare.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"WeJourneyShare/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"MainApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 87LWT8ZN7G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1097,15 +1095,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = WeJourneyShare/WeJourneyShare.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MainApp/Main.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"WeJourneyShare/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"MainApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 87LWT8ZN7G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WeJourneyShare/Info.plist;
+				INFOPLIST_FILE = MainApp/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1117,8 +1116,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mourey.WeJourney;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mourey.${PRODUCT_NAME}";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
@@ -1135,15 +1134,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = WeJourneyShare/WeJourneyShare.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MainApp/Main.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"WeJourneyShare/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"MainApp/Preview Content\"";
 				DEVELOPMENT_TEAM = 87LWT8ZN7G;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WeJourneyShare/Info.plist;
+				INFOPLIST_FILE = MainApp/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1155,8 +1155,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 14.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mourey.WeJourney;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mourey.${PRODUCT_NAME}";
+				PRODUCT_NAME = "$(PROJECT_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "appletvos appletvsimulator iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
@@ -1175,26 +1175,26 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = WeJourneyShareOnWatch/WeJourneyShareOnWatch.entitlements;
+				CODE_SIGN_ENTITLEMENTS = WatchApp/Watch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 87LWT8ZN7G;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WeJourneyShareOnWatch/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = WeJourneyShareOnWatch;
+				INFOPLIST_FILE = WatchApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "${PRODUCT_NAME}";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.mourey.JourneyJar;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.mourey.${PRODUCT_NAME}";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mourey.WeJourney.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mourey.${PRODUCT_NAME}.watchkitapp";
+				PRODUCT_NAME = "${PROJECT_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1213,26 +1213,26 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = WeJourneyShareOnWatch/WeJourneyShareOnWatch.entitlements;
+				CODE_SIGN_ENTITLEMENTS = WatchApp/Watch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 87LWT8ZN7G;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WeJourneyShareOnWatch/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = WeJourneyShareOnWatch;
+				INFOPLIST_FILE = WatchApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "${PRODUCT_NAME}";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.mourey.JourneyJar;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "com.mourey.${PRODUCT_NAME}";
 				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mourey.WeJourney.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mourey.${PRODUCT_NAME}.watchkitapp";
+				PRODUCT_NAME = "${PROJECT_NAME}";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1352,7 +1352,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		407D7CFB27024EBE00D2BA90 /* Build configuration list for PBXNativeTarget "JourneyJarShare" */ = {
+		407D7CFB27024EBE00D2BA90 /* Build configuration list for PBXNativeTarget "JourneyJar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				407D7CFC27024EBE00D2BA90 /* Debug */,
@@ -1361,7 +1361,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		407D7D352702556900D2BA90 /* Build configuration list for PBXNativeTarget "JourneyJarShareOnWatch" */ = {
+		407D7D352702556900D2BA90 /* Build configuration list for PBXNativeTarget "JourneyJarOnWatch" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				407D7D2F2702556900D2BA90 /* Debug */,
@@ -1370,7 +1370,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DC2B9F6E2BEE2143000F059D /* Build configuration list for PBXNativeTarget "JourneyJarShareTests" */ = {
+		DC2B9F6E2BEE2143000F059D /* Build configuration list for PBXNativeTarget "JourneyJarTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC2B9F6F2BEE2143000F059D /* Debug */,
@@ -1379,7 +1379,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DC2B9F7D2BEE218B000F059D /* Build configuration list for PBXNativeTarget "JourneyJarShareUITests" */ = {
+		DC2B9F7D2BEE218B000F059D /* Build configuration list for PBXNativeTarget "JourneyJarUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC2B9F7E2BEE218B000F059D /* Debug */,
@@ -1401,14 +1401,14 @@
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
-		DC2B9F802BEE221C000F059D /* WeJourney.xcdatamodeld */ = {
+		DC478C922BF0EF60001B603A /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				DC2B9F812BEE221C000F059D /* WeJourney.xcdatamodel */,
+				DC478C932BF0EF60001B603A /* WeJourney.xcdatamodel */,
 			);
-			currentVersion = DC2B9F812BEE221C000F059D /* WeJourney.xcdatamodel */;
-			name = WeJourney.xcdatamodeld;
-			path = /Users/jcmourey/Documents/XCodeProjects/WeJourney/WeJourneyShare/WeJourney.xcdatamodeld;
+			currentVersion = DC478C932BF0EF60001B603A /* WeJourney.xcdatamodel */;
+			name = Model.xcdatamodeld;
+			path = ../MainApp/Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

@@ -9,7 +9,7 @@ import SwiftUI
 import CoreData
 
 @main
-struct WeJourneyShareApp: App {
+struct MainApp: App {
     @ApplicationDelegateAdaptor var appDelegate: AppDelegate
 
     let persistenceController = PersistenceController.shared

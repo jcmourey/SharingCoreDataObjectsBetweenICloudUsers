@@ -8,7 +8,7 @@ The SwiftUI app for watchOS.
 import SwiftUI
 
 @main
-struct WeJourneyShareApp: App {
+struct WatchApp: App {
     @WKApplicationDelegateAdaptor var appDelegate: AppDelegate
 
     let persistenceController = PersistenceController.shared
